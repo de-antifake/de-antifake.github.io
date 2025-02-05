@@ -22,6 +22,7 @@
       <h2 class="project-tagline">De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks</h2>
       <a href="index.html" class="btn">Home</a>
       <a href="samples.html" class="btn">Audio Samples</a>
+      <a href="subjective.html" class="btn">Subjective Test Samples</a>
 
     </section>
 
@@ -33,7 +34,8 @@
                 Below are some examples of source audio and synthesized audio corresponding to different scenarios of Voice Clone attacks mentioned in the paper.
             </p>
 
-            <h1>Clean/Protected/Purified Samples (as voice cloning input)</h1>
+            <h1>Clean/Protected/Purified Samples (As Voice Cloning Input)</h1>
+            <h2>Clean (No Protection)</h2>
             <table>
             <tr>
             <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
@@ -43,204 +45,547 @@
             <td><audio controls><source src="samples\seedvc\none\librispeech_p3570-5694-0013\clean-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\none\librispeech_p5142-33396-0036\clean-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
             </tr>
+            </table>
+            <h2>Protection Method: AntiFake</h2>
+            <table>
             <tr>
-            <td>Protected Audio (AntiFake)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\protect-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+            <tr>
+            <td>Protected</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\protect-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p2300-131720-0037\protect-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p3570-5694-0013\protect-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p5142-33396-0036\protect-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
             </tr>
             <tr>
-            <td>Purified Audio (AudioPure)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\audiopure-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td>Purified (AudioPure)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\audiopure-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p2300-131720-0037\audiopure-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p3570-5694-0013\audiopure-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p5142-33396-0036\audiopure-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
             </tr>
             <tr>
-            <td>Purified Audio (Ours)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\ours-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td>Purified (Ours)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\ours-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p2300-131720-0037\ours-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p3570-5694-0013\ours-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p5142-33396-0036\ours-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
             </tr>
             </table>
+            <h2>Protection Method: AttackVC</h2>
+            <table>
+            <tr>
+            <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+            <tr>
+            <td>Protected</td><td><audio controls><source src="samples\coqui\attack\librispeech_p1089-134686-0027\protect-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p2300-131720-0037\protect-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p3570-5694-0013\protect-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p5142-33396-0036\protect-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+            </tr>
+            <tr>
+            <td>Purified (AudioPure)</td><td><audio controls><source src="samples\coqui\attack\librispeech_p1089-134686-0027\audiopure-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p2300-131720-0037\audiopure-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p3570-5694-0013\audiopure-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p5142-33396-0036\audiopure-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+            </tr>
+            <tr>
+            <td>Purified (Ours)</td><td><audio controls><source src="samples\coqui\attack\librispeech_p1089-134686-0027\ours-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p2300-131720-0037\ours-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p3570-5694-0013\ours-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\attack\librispeech_p5142-33396-0036\ours-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+            </tr>
+            </table>
+            <h2>Protection Method: VoiceGuard</h2>
+            <table>
+            <tr>
+            <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+            <tr>
+            <td>Protected</td><td><audio controls><source src="samples\coqui\voiceguard\librispeech_p1089-134686-0027\protect-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p2300-131720-0037\protect-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p3570-5694-0013\protect-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p5142-33396-0036\protect-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+            </tr>
+            <tr>
+            <td>Purified (AudioPure)</td><td><audio controls><source src="samples\coqui\voiceguard\librispeech_p1089-134686-0027\audiopure-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p2300-131720-0037\audiopure-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p3570-5694-0013\audiopure-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p5142-33396-0036\audiopure-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+            </tr>
+            <tr>
+            <td>Purified (Ours)</td><td><audio controls><source src="samples\coqui\voiceguard\librispeech_p1089-134686-0027\ours-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p2300-131720-0037\ours-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p3570-5694-0013\ours-source-source-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+            <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p5142-33396-0036\ours-source-source-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+            </tr>
+            </table>
             <h1>Synthesized Speech Using Clean/Protected/Purified Samples</h1>
-            <h2>SeedVC</h2>
+            <h2>Protection Method: AntiFake</h2>
+            <h3>Protection Method: AntiFake | Voice Cloning Method: SeedVC</h3>
             <table>
                 <tr>
                 <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
                 <tr>
-                <td>Clean Audio Synthesized</td><td><audio controls><source src="samples\seedvc\none\librispeech_p1089-134686-0027\clean-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Clean</td><td><audio controls><source src="samples\seedvc\none\librispeech_p1089-134686-0027\clean-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\none\librispeech_p2300-131720-0037\clean-seedvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\none\librispeech_p3570-5694-0013\clean-seedvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\none\librispeech_p5142-33396-0036\clean-seedvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Protected Audio (AntiFake)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\protect-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Protected</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\protect-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p2300-131720-0037\protect-seedvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p3570-5694-0013\protect-seedvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p5142-33396-0036\protect-seedvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (AudioPure)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\audiopure-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\audiopure-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p2300-131720-0037\audiopure-seedvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p3570-5694-0013\audiopure-seedvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p5142-33396-0036\audiopure-seedvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (Ours)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\ours-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\ours-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p2300-131720-0037\ours-seedvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p3570-5694-0013\ours-seedvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\antifake\librispeech_p5142-33396-0036\ours-seedvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
             </table>
-            <h2>Tortoise</h2>
+            <h3>Protection Method: AntiFake | Voice Cloning Method: Tortoise</h3>
             <table>
                 <tr>
                 <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
                 <tr>
-                <td>Clean Audio Synthesized</td><td><audio controls><source src="samples\tortoise\none\librispeech_p1089-134686-0027\clean-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Clean</td><td><audio controls><source src="samples\tortoise\none\librispeech_p1089-134686-0027\clean-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\none\librispeech_p2300-131720-0037\clean-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\none\librispeech_p3570-5694-0013\clean-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\none\librispeech_p5142-33396-0036\clean-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Protected Audio (AntiFake)</td><td><audio controls><source src="samples\tortoise\antifake\librispeech_p1089-134686-0027\protect-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Protected</td><td><audio controls><source src="samples\tortoise\antifake\librispeech_p1089-134686-0027\protect-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p2300-131720-0037\protect-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p3570-5694-0013\protect-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p5142-33396-0036\protect-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (AudioPure)</td><td><audio controls><source src="samples\tortoise\antifake\librispeech_p1089-134686-0027\audiopure-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\tortoise\antifake\librispeech_p1089-134686-0027\audiopure-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p2300-131720-0037\audiopure-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p3570-5694-0013\audiopure-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p5142-33396-0036\audiopure-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (Ours)</td><td><audio controls><source src="samples\tortoise\antifake\librispeech_p1089-134686-0027\ours-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\tortoise\antifake\librispeech_p1089-134686-0027\ours-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p2300-131720-0037\ours-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p3570-5694-0013\ours-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\antifake\librispeech_p5142-33396-0036\ours-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
             </table>
-            <h2>OpenVoice</h2>
+            <h3>Protection Method: AntiFake | Voice Cloning Method: OpenVoice</h3>
             <table>
                 <tr>
                 <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
                 <tr>
-                <td>Clean Audio Synthesized</td><td><audio controls><source src="samples\openvoice\none\librispeech_p1089-134686-0027\clean-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Clean</td><td><audio controls><source src="samples\openvoice\none\librispeech_p1089-134686-0027\clean-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\none\librispeech_p2300-131720-0037\clean-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\none\librispeech_p3570-5694-0013\clean-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\none\librispeech_p5142-33396-0036\clean-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Protected Audio (AntiFake)</td><td><audio controls><source src="samples\openvoice\antifake\librispeech_p1089-134686-0027\protect-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Protected</td><td><audio controls><source src="samples\openvoice\antifake\librispeech_p1089-134686-0027\protect-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p2300-131720-0037\protect-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p3570-5694-0013\protect-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p5142-33396-0036\protect-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (AudioPure)</td><td><audio controls><source src="samples\openvoice\antifake\librispeech_p1089-134686-0027\audiopure-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\openvoice\antifake\librispeech_p1089-134686-0027\audiopure-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p2300-131720-0037\audiopure-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p3570-5694-0013\audiopure-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p5142-33396-0036\audiopure-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (Ours)</td><td><audio controls><source src="samples\openvoice\antifake\librispeech_p1089-134686-0027\ours-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\openvoice\antifake\librispeech_p1089-134686-0027\ours-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p2300-131720-0037\ours-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p3570-5694-0013\ours-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\antifake\librispeech_p5142-33396-0036\ours-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
             </table>
-            <h2>SV2TTS</h2>
+            <h3>Protection Method: AntiFake | Voice Cloning Method: SV2TTS</h3>
             <table>
                 <tr>
                 <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
                 <tr>
-                <td>Clean Audio Synthesized</td><td><audio controls><source src="samples\rtvc\none\librispeech_p1089-134686-0027\clean-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Clean</td><td><audio controls><source src="samples\rtvc\none\librispeech_p1089-134686-0027\clean-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\none\librispeech_p2300-131720-0037\clean-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\none\librispeech_p3570-5694-0013\clean-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\none\librispeech_p5142-33396-0036\clean-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Protected Audio (AntiFake)</td><td><audio controls><source src="samples\rtvc\antifake\librispeech_p1089-134686-0027\protect-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Protected</td><td><audio controls><source src="samples\rtvc\antifake\librispeech_p1089-134686-0027\protect-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p2300-131720-0037\protect-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p3570-5694-0013\protect-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p5142-33396-0036\protect-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (AudioPure)</td><td><audio controls><source src="samples\rtvc\antifake\librispeech_p1089-134686-0027\audiopure-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\rtvc\antifake\librispeech_p1089-134686-0027\audiopure-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p2300-131720-0037\audiopure-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p3570-5694-0013\audiopure-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p5142-33396-0036\audiopure-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (Ours)</td><td><audio controls><source src="samples\rtvc\antifake\librispeech_p1089-134686-0027\ours-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\rtvc\antifake\librispeech_p1089-134686-0027\ours-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p2300-131720-0037\ours-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p3570-5694-0013\ours-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\antifake\librispeech_p5142-33396-0036\ours-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
             </table>
-            <h2>DiffVC</h2>
+            <h3>Protection Method: AntiFake | Voice Cloning Method: DiffVC</h3>
             <table>
                 <tr>
                 <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
                 <tr>
-                <td>Clean Audio Synthesized</td><td><audio controls><source src="samples\diffvc\none\librispeech_p1089-134686-0027\clean-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Clean</td><td><audio controls><source src="samples\diffvc\none\librispeech_p1089-134686-0027\clean-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\none\librispeech_p2300-131720-0037\clean-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\none\librispeech_p3570-5694-0013\clean-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\none\librispeech_p5142-33396-0036\clean-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Protected Audio (AntiFake)</td><td><audio controls><source src="samples\diffvc\antifake\librispeech_p1089-134686-0027\protect-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Protected</td><td><audio controls><source src="samples\diffvc\antifake\librispeech_p1089-134686-0027\protect-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p2300-131720-0037\protect-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p3570-5694-0013\protect-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p5142-33396-0036\protect-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (AudioPure)</td><td><audio controls><source src="samples\diffvc\antifake\librispeech_p1089-134686-0027\audiopure-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\diffvc\antifake\librispeech_p1089-134686-0027\audiopure-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p2300-131720-0037\audiopure-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p3570-5694-0013\audiopure-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p5142-33396-0036\audiopure-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (Ours)</td><td><audio controls><source src="samples\diffvc\antifake\librispeech_p1089-134686-0027\ours-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\diffvc\antifake\librispeech_p1089-134686-0027\ours-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p2300-131720-0037\ours-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p3570-5694-0013\ours-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\antifake\librispeech_p5142-33396-0036\ours-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
             </table>
-            <h2>YourTTS</h2>
+            <h3>Protection Method: AntiFake | Voice Cloning Method: YourTTS</h3>
             <table>
                 <tr>
                 <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
                 <tr>
-                <td>Clean Audio Synthesized</td><td><audio controls><source src="samples\coqui\none\librispeech_p1089-134686-0027\clean-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Clean</td><td><audio controls><source src="samples\coqui\none\librispeech_p1089-134686-0027\clean-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\none\librispeech_p2300-131720-0037\clean-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\none\librispeech_p3570-5694-0013\clean-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\none\librispeech_p5142-33396-0036\clean-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Protected Audio (AntiFake)</td><td><audio controls><source src="samples\coqui\antifake\librispeech_p1089-134686-0027\protect-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Protected</td><td><audio controls><source src="samples\coqui\antifake\librispeech_p1089-134686-0027\protect-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p2300-131720-0037\protect-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p3570-5694-0013\protect-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p5142-33396-0036\protect-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (AudioPure)</td><td><audio controls><source src="samples\coqui\antifake\librispeech_p1089-134686-0027\audiopure-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\coqui\antifake\librispeech_p1089-134686-0027\audiopure-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p2300-131720-0037\audiopure-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p3570-5694-0013\audiopure-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p5142-33396-0036\audiopure-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
                 <tr>
-                <td>Purified Audio (Ours)</td><td><audio controls><source src="samples\coqui\antifake\librispeech_p1089-134686-0027\ours-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\coqui\antifake\librispeech_p1089-134686-0027\ours-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p2300-131720-0037\ours-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p3570-5694-0013\ours-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\antifake\librispeech_p5142-33396-0036\ours-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
                 </tr>
             </table>
+            <h2>Protection Method: AttackVC</h2>
+            <h3>Protection Method: AttackVC | Voice Cloning Method: Tortoise</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\tortoise\none\librispeech_p1089-134686-0027\clean-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\none\librispeech_p2300-131720-0037\clean-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\none\librispeech_p3570-5694-0013\clean-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\none\librispeech_p5142-33396-0036\clean-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\tortoise\attack\librispeech_p1089-134686-0027\protect-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p2300-131720-0037\protect-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p3570-5694-0013\protect-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p5142-33396-0036\protect-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\tortoise\attack\librispeech_p1089-134686-0027\audiopure-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p2300-131720-0037\audiopure-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p3570-5694-0013\audiopure-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p5142-33396-0036\audiopure-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\tortoise\attack\librispeech_p1089-134686-0027\ours-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p2300-131720-0037\ours-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p3570-5694-0013\ours-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\attack\librispeech_p5142-33396-0036\ours-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: AttackVC | Voice Cloning Method: OpenVoice</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\openvoice\none\librispeech_p1089-134686-0027\clean-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\none\librispeech_p2300-131720-0037\clean-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\none\librispeech_p3570-5694-0013\clean-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\none\librispeech_p5142-33396-0036\clean-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\openvoice\attack\librispeech_p1089-134686-0027\protect-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p2300-131720-0037\protect-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p3570-5694-0013\protect-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p5142-33396-0036\protect-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\openvoice\attack\librispeech_p1089-134686-0027\audiopure-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p2300-131720-0037\audiopure-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p3570-5694-0013\audiopure-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p5142-33396-0036\audiopure-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\openvoice\attack\librispeech_p1089-134686-0027\ours-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p2300-131720-0037\ours-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p3570-5694-0013\ours-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\attack\librispeech_p5142-33396-0036\ours-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: AttackVC | Voice Cloning Method: SV2TTS</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\rtvc\none\librispeech_p1089-134686-0027\clean-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\none\librispeech_p2300-131720-0037\clean-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\none\librispeech_p3570-5694-0013\clean-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\none\librispeech_p5142-33396-0036\clean-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\rtvc\attack\librispeech_p1089-134686-0027\protect-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p2300-131720-0037\protect-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p3570-5694-0013\protect-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p5142-33396-0036\protect-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\rtvc\attack\librispeech_p1089-134686-0027\audiopure-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p2300-131720-0037\audiopure-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p3570-5694-0013\audiopure-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p5142-33396-0036\audiopure-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\rtvc\attack\librispeech_p1089-134686-0027\ours-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p2300-131720-0037\ours-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p3570-5694-0013\ours-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\attack\librispeech_p5142-33396-0036\ours-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: AttackVC | Voice Cloning Method: DiffVC</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\diffvc\none\librispeech_p1089-134686-0027\clean-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\none\librispeech_p2300-131720-0037\clean-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\none\librispeech_p3570-5694-0013\clean-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\none\librispeech_p5142-33396-0036\clean-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\diffvc\attack\librispeech_p1089-134686-0027\protect-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p2300-131720-0037\protect-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p3570-5694-0013\protect-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p5142-33396-0036\protect-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\diffvc\attack\librispeech_p1089-134686-0027\audiopure-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p2300-131720-0037\audiopure-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p3570-5694-0013\audiopure-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p5142-33396-0036\audiopure-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\diffvc\attack\librispeech_p1089-134686-0027\ours-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p2300-131720-0037\ours-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p3570-5694-0013\ours-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\attack\librispeech_p5142-33396-0036\ours-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: AttackVC | Voice Cloning Method: YourTTS</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\coqui\none\librispeech_p1089-134686-0027\clean-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\none\librispeech_p2300-131720-0037\clean-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\none\librispeech_p3570-5694-0013\clean-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\none\librispeech_p5142-33396-0036\clean-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\coqui\attack\librispeech_p1089-134686-0027\protect-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p2300-131720-0037\protect-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p3570-5694-0013\protect-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p5142-33396-0036\protect-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\coqui\attack\librispeech_p1089-134686-0027\audiopure-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p2300-131720-0037\audiopure-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p3570-5694-0013\audiopure-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p5142-33396-0036\audiopure-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\coqui\attack\librispeech_p1089-134686-0027\ours-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p2300-131720-0037\ours-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p3570-5694-0013\ours-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\attack\librispeech_p5142-33396-0036\ours-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h2>Protection Method: VoiceGuard</h2>
+            <h3>Protection Method: VoiceGuard | Voice Cloning Method: Tortoise</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\tortoise\none\librispeech_p1089-134686-0027\clean-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\none\librispeech_p2300-131720-0037\clean-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\none\librispeech_p3570-5694-0013\clean-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\none\librispeech_p5142-33396-0036\clean-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p1089-134686-0027\protect-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p2300-131720-0037\protect-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p3570-5694-0013\protect-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p5142-33396-0036\protect-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p1089-134686-0027\audiopure-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p2300-131720-0037\audiopure-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p3570-5694-0013\audiopure-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p5142-33396-0036\audiopure-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p1089-134686-0027\ours-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p2300-131720-0037\ours-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p3570-5694-0013\ours-tortoise-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\tortoise\voiceguard\librispeech_p5142-33396-0036\ours-tortoise-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: VoiceGuard | Voice Cloning Method: OpenVoice</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\openvoice\none\librispeech_p1089-134686-0027\clean-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\none\librispeech_p2300-131720-0037\clean-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\none\librispeech_p3570-5694-0013\clean-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\none\librispeech_p5142-33396-0036\clean-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p1089-134686-0027\protect-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p2300-131720-0037\protect-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p3570-5694-0013\protect-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p5142-33396-0036\protect-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p1089-134686-0027\audiopure-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p2300-131720-0037\audiopure-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p3570-5694-0013\audiopure-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p5142-33396-0036\audiopure-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p1089-134686-0027\ours-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p2300-131720-0037\ours-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p3570-5694-0013\ours-openvoice-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\openvoice\voiceguard\librispeech_p5142-33396-0036\ours-openvoice-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: VoiceGuard | Voice Cloning Method: SV2TTS</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\rtvc\none\librispeech_p1089-134686-0027\clean-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\none\librispeech_p2300-131720-0037\clean-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\none\librispeech_p3570-5694-0013\clean-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\none\librispeech_p5142-33396-0036\clean-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p1089-134686-0027\protect-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p2300-131720-0037\protect-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p3570-5694-0013\protect-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p5142-33396-0036\protect-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p1089-134686-0027\audiopure-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p2300-131720-0037\audiopure-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p3570-5694-0013\audiopure-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p5142-33396-0036\audiopure-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p1089-134686-0027\ours-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p2300-131720-0037\ours-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p3570-5694-0013\ours-rtvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\rtvc\voiceguard\librispeech_p5142-33396-0036\ours-rtvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: VoiceGuard | Voice Cloning Method: DiffVC</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\diffvc\none\librispeech_p1089-134686-0027\clean-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\none\librispeech_p2300-131720-0037\clean-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\none\librispeech_p3570-5694-0013\clean-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\none\librispeech_p5142-33396-0036\clean-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p1089-134686-0027\protect-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p2300-131720-0037\protect-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p3570-5694-0013\protect-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p5142-33396-0036\protect-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p1089-134686-0027\audiopure-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p2300-131720-0037\audiopure-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p3570-5694-0013\audiopure-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p5142-33396-0036\audiopure-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p1089-134686-0027\ours-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p2300-131720-0037\ours-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p3570-5694-0013\ours-diffvc-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\diffvc\voiceguard\librispeech_p5142-33396-0036\ours-diffvc-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
+            <h3>Protection Method: VoiceGuard | Voice Cloning Method: YourTTS</h3>
+            <table>
+                <tr>
+                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <tr>
+                <td>Clean</td><td><audio controls><source src="samples\coqui\none\librispeech_p1089-134686-0027\clean-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\none\librispeech_p2300-131720-0037\clean-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\none\librispeech_p3570-5694-0013\clean-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\none\librispeech_p5142-33396-0036\clean-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Protected</td><td><audio controls><source src="samples\coqui\voiceguard\librispeech_p1089-134686-0027\protect-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p2300-131720-0037\protect-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p3570-5694-0013\protect-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p5142-33396-0036\protect-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (AudioPure)</td><td><audio controls><source src="samples\coqui\voiceguard\librispeech_p1089-134686-0027\audiopure-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p2300-131720-0037\audiopure-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p3570-5694-0013\audiopure-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p5142-33396-0036\audiopure-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                <td>Purified (Ours)</td><td><audio controls><source src="samples\coqui\voiceguard\librispeech_p1089-134686-0027\ours-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p2300-131720-0037\ours-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p3570-5694-0013\ours-coqui-librispeech_p3570-5694-0013.wav" type="audio/wav"></audio></td>
+                <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p5142-33396-0036\ours-coqui-librispeech_p5142-33396-0036.wav" type="audio/wav"></audio></td>
+                </tr>
+            </table>
         </div>
     </section>
 
-    </section>
 
   </body>
 </html>
