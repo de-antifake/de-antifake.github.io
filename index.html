@@ -15,38 +15,36 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
 
-  <body>
-    <section class="page-header">
+  <body>    <section class="page-header">
       <h1 class="project-name">De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks</h1>
       <h2 class="project-tagline">by Wei Fan, Kejiang Chen, Chang Liu, Weiming Zhang, and Nenghai Yu</h2>
-      <a href="index.html" class="btn">Home</a>
-      <a href="https://arxiv.org/abs/2507.02606" class="btn">arXiv</a>
-      <a href="https://github.com/cyberrrange/de-antifake" class="btn">Code</a>
-      <a href="samples.html" class="btn">Audio Samples</a>
-      <a href="subjective.html" class="btn">Subjective Test Samples</a>
+      
+      <!-- first line -->
+      <div style="margin-bottom: 10px;">
+        <a href="index.html" class="btn">Home</a>
+        <a href="https://github.com/cyberrrange/de-antifake" class="btn" style="background-color: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.8); font-weight: bold;">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 4px; margin-bottom: 2px;">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          Code
+        </a>
+        <a href="https://arxiv.org/abs/2507.02606" class="btn" style="background-color: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.6); font-weight: bold;">📄 arXiv</a>
+        <a href="https://icml.cc/media/icml-2025/Slides/45768.pdf" class="btn" style="background-color: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.4);">📊 Slides</a>
+      </div>
+      
+      <!-- second line -->
+      <div style="font-size: 14px;">
+        <span style="color: rgba(255,255,255,0.8); margin-right: 15px; font-weight: bold;">Supplementary Materials:</span>
+        <a href="samples.html" class="btn" style="font-size: 14px; padding: 8px 16px; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.3);">🎵 Audio Samples</a>
+        <a href="subjective.html" class="btn" style="font-size: 14px; padding: 8px 16px; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.3);">👥 Subjective Test Samples</a>
+      </div>
     </section>
 
 <section class="main-content">
-      
-  <div id="home">
+        <div id="home">
     <h2>Introduction</h2>
-    This is the homepage of the <a href="https://arxiv.org/pdf/2507.02606">paper</a> "De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks". The paper's open-source code can be accessed <a href="https://github.com/cyberrrange/de-antifake">here</a>, and you can obtain the slides <a href="paper/slides-5min.pdf">here</a>.    <h2>Citation</h2>
-    If you find this work useful, please consider citing our paper:
+    <p>This is the homepage of our <a href="https://arxiv.org/pdf/2507.02606">paper</a> "De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks". This work presents a systematic evaluation of protective perturbations against voice cloning attacks and proposes a novel two-stage purification method to disrupt existing defenses.</p>
 
-    <pre style="padding: 15px 15px 15px 25px; background-color: #f6f8fa; border: 1px solid #d1d9e0; border-radius: 6px; overflow-x: auto; margin-top: 15px;">
-@inproceedings{de-antifake-icml2025,
-  title = {De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks},
-  author = {Fan, Wei and Chen, Kejiang and Liu, Chang and Zhang, Weiming and Yu, Nenghai},
-  booktitle = {International Conference on Machine Learning},
-  year = {2025},
-}</pre>
-    <h2>Poster</h2>
-    <div class="poster-container" style="text-align: center; margin: 20px 0;">
-      <a href="paper/single_poster.png" target="_blank" style="display: inline-block; text-decoration: none;">
-        <img src="paper/single_poster.png" alt="De-AntiFake Research Poster" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
-      </a>
-      <p style="font-size: 14px; color: #666; margin-top: 10px;">Click to view full resolution</p>
-    </div>
 
     <h2>Abstract</h2>
 
@@ -61,7 +59,23 @@
     <p style="text-indent: 2em; text-align: justify;">
       From this perspective, we propose a novel two-stage purification method: (1) Purify the perturbed speech; (2) Refine it using phoneme guidance to align it with the clean speech distribution. Experimental results demonstrate that our method outperforms state-of-the-art purification methods in disrupting VC defenses. Our study reveals the limitations of adversarial perturbation-based VC defenses and underscores the urgent need for more robust solutions to mitigate the security and privacy risks posed by VC.
     </p>
+    <div class="poster-container" style="text-align: center; margin: 20px 0;">
+      <a href="paper/single_poster.png" target="_blank" style="display: inline-block; text-decoration: none;">
+        <img src="paper/single_poster.png" alt="De-AntiFake Research Poster" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
+      </a>
+      <p style="font-size: 14px; color: #666; margin-top: 10px;">Click to view full resolution</p>
+    </div>
 
+    <h2>Citation</h2>
+    If you find this work useful, please consider citing our paper:
+
+    <pre style="padding: 15px 15px 15px 25px; background-color: #f6f8fa; border: 1px solid #d1d9e0; border-radius: 6px; overflow-x: auto; margin-top: 15px;">
+@inproceedings{de-antifake-icml2025,
+  title = {De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks},
+  author = {Fan, Wei and Chen, Kejiang and Liu, Chang and Zhang, Weiming and Yu, Nenghai},
+  booktitle = {International Conference on Machine Learning},
+  year = {2025},
+}</pre>
 
   </div>
 
