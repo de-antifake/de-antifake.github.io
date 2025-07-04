@@ -20,6 +20,7 @@
       <h1 class="project-name">De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks</h1>
       <h2 class="project-tagline">by Wei Fan, Kejiang Chen, Chang Liu, Weiming Zhang, and Nenghai Yu</h2>
       <a href="index.html" class="btn">Home</a>
+      <a href="https://arxiv.org/abs/2507.02606" class="btn">arXiv</a>
       <a href="https://github.com/cyberrrange/de-antifake" class="btn">Code</a>
       <a href="samples.html" class="btn">Audio Samples</a>
       <a href="subjective.html" class="btn">Subjective Test Samples</a>
@@ -29,19 +30,38 @@
       
   <div id="home">
     <h2>Introduction</h2>
-    This is the homepage of the paper "De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks". The paper's open-source code can be accessed <a href="https://github.com/cyberrrange/de-antifake">here</a>.
+    This is the homepage of the <a href="https://arxiv.org/pdf/2507.02606">paper</a> "De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks". The paper's open-source code can be accessed <a href="https://github.com/cyberrrange/de-antifake">here</a>, and you can obtain the slides <a href="paper/slides-5min.pdf">here</a>.    <h2>Citation</h2>
+    If you find this work useful, please consider citing our paper:
 
+    <pre style="padding: 15px 15px 15px 25px; background-color: #f6f8fa; border: 1px solid #d1d9e0; border-radius: 6px; overflow-x: auto; margin-top: 15px;">
+@inproceedings{de-antifake-icml2025,
+  title = {De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks},
+  author = {Fan, Wei and Chen, Kejiang and Liu, Chang and Zhang, Weiming and Yu, Nenghai},
+  booktitle = {International Conference on Machine Learning},
+  year = {2025},
+}</pre>
+    <h2>Poster</h2>
+    <div class="poster-container" style="text-align: center; margin: 20px 0;">
+      <a href="paper/single_poster.png" target="_blank" style="display: inline-block; text-decoration: none;">
+        <img src="paper/single_poster.png" alt="De-AntiFake Research Poster" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
+      </a>
+      <p style="font-size: 14px; color: #666; margin-top: 10px;">Click to view full resolution</p>
+    </div>
 
     <h2>Abstract</h2>
 
-    <p>
-      &nbsp;&nbsp;The rapid advancement of speech generation models has heightened privacy and security concerns related to voice cloning (VC). Recent studies have investigated disrupting unauthorized voice cloning by introducing adversarial perturbations. However, determined attackers can mitigate these protective perturbations and successfully execute VC.
-      <br>&nbsp;&nbsp;In this study, we conduct the first systematic evaluation of these protective perturbations against VC under realistic threat models that include perturbation purification. Our findings reveal that while existing purification methods can neutralize a considerable portion of the protective perturbations, they still lead to distortions in the feature space of VC models, which degrades the performance of VC.
-      <br>&nbsp;&nbsp;From this perspective, we propose a novel two-stage purification method: (1) Purify the perturbed speech; (2) Refine it using phoneme guidance to align it with the clean speech distribution. Experimental results demonstrate that our method outperforms state-of-the-art purification methods in disrupting VC defenses. Our study reveals the limitations of adversarial perturbation-based VC defenses and underscores the urgent need for more robust solutions to mitigate the security and privacy risks posed by VC.
+    <p style="text-indent: 2em; text-align: justify;">
+      The rapid advancement of speech generation models has heightened privacy and security concerns related to voice cloning (VC). Recent studies have investigated disrupting unauthorized voice cloning by introducing adversarial perturbations. However, determined attackers can mitigate these protective perturbations and successfully execute VC.
+    </p>
+    
+    <p style="text-indent: 2em; text-align: justify;">
+      In this study, we conduct the first systematic evaluation of these protective perturbations against VC under realistic threat models that include perturbation purification. Our findings reveal that while existing purification methods can neutralize a considerable portion of the protective perturbations, they still lead to distortions in the feature space of VC models, which degrades the performance of VC.
+    </p>
+    
+    <p style="text-indent: 2em; text-align: justify;">
+      From this perspective, we propose a novel two-stage purification method: (1) Purify the perturbed speech; (2) Refine it using phoneme guidance to align it with the clean speech distribution. Experimental results demonstrate that our method outperforms state-of-the-art purification methods in disrupting VC defenses. Our study reveals the limitations of adversarial perturbation-based VC defenses and underscores the urgent need for more robust solutions to mitigate the security and privacy risks posed by VC.
     </p>
 
-
-    
 
   </div>
 
