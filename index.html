@@ -45,26 +45,28 @@
     <h2>Introduction</h2>
     <p>This is the homepage of our <a href="https://arxiv.org/pdf/2507.02606">paper</a> "De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks". This work presents a systematic evaluation of protective perturbations against voice cloning attacks and proposes a novel two-stage purification method to disrupt existing defenses.</p>
 
-    <div class="poster-container" style="text-align: center; margin: 20px 0;">
-      <a href="paper/single_poster.png" target="_blank" style="display: inline-block; text-decoration: none;">
-        <img src="paper/single_poster.png" alt="De-AntiFake Research Poster" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" />
-      </a>
-      <p style="font-size: 14px; color: #666; margin-top: 10px;">Click to view full resolution</p>
-    </div>
 
-    <h2>Abstract</h2>
 
-    <p style="text-indent: 2em; text-align: justify;">
+    <h2>Abstract</h2>    <p style="text-indent: 2em; text-align: justify;">
       The rapid advancement of speech generation models has heightened privacy and security concerns related to voice cloning (VC). Recent studies have investigated disrupting unauthorized voice cloning by introducing adversarial perturbations. However, determined attackers can mitigate these protective perturbations and successfully execute VC.
-    </p>
+    </p>      <div style="text-align: center; margin: 20px 0;">
+      <img src="fig/caption.svg" alt="Overview of voice cloning protection and attack scenarios" style="max-width: 50%; height: auto;">
+      <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 14px; text-align: center;">Figure 1: The threat model: Bypassing voice cloning defenses using purification methods.</p>
+    </div>
     
     <p style="text-indent: 2em; text-align: justify;">
       In this study, we conduct the first systematic evaluation of these protective perturbations against VC under realistic threat models that include perturbation purification. Our findings reveal that while existing purification methods can neutralize a considerable portion of the protective perturbations, they still lead to distortions in the feature space of VC models, which degrades the performance of VC.
-    </p>
+    </p>      <div style="text-align: center; margin: 20px 0;">
+      <img src="fig/PhonePuRe.svg" alt="PhonePuRe methodology diagram" style="max-width: 80%; height: auto;">
+      <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 14px; text-align: center;">Figure 2:  Our two-stage method: A refinement stage repairs distortions left by initial purification.</p>
+    </div>
     
     <p style="text-indent: 2em; text-align: justify;">
       From this perspective, we propose a novel two-stage purification method: (1) Purify the perturbed speech; (2) Refine it using phoneme guidance to align it with the clean speech distribution. Experimental results demonstrate that our method outperforms state-of-the-art purification methods in disrupting VC defenses. Our study reveals the limitations of adversarial perturbation-based VC defenses and underscores the urgent need for more robust solutions to mitigate the security and privacy risks posed by VC.
-    </p>
+    </p>      <div style="text-align: center; margin: 20px 0;">
+      <img src="fig/results.svg" alt="Experimental results comparison" style="max-width: 60%; height: auto;">
+      <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 14px; text-align: center;">Figure 3: Our method outperforms existing purification methods, increasing the attack success rate: 45.1% → 76.2%.</p>
+    </div>
 
     <h2>Citation</h2>
     If you find this work useful, please consider citing our paper:
