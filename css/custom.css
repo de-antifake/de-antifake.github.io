@@ -14,4 +14,27 @@ audio {
   
   p {
     text-align: justify;
+  }  
+  .btn {
+    transition: all 0.3s ease;
+    /* position: relative; */
+    /* overflow: hidden; */
   }
+  
+  .btn:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn[href*="github.com"]:hover {
+    background-color: rgba(255, 255, 255, 0.35) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  .btn[href*="arxiv.org"]:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.25);
+  }
+  
