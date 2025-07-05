@@ -233,12 +233,12 @@ audio {
     padding-bottom: 10px;
     margin-bottom: 15px;
     word-break: break-all; /* Prevents long filenames from overflowing */
-  }
-  .audio-item {
+  }  .audio-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Center align both text and audio */
     margin-bottom: 10px;
     gap: 15px; /* Fixed spacing between text and audio */
+    min-height: 40px; /* Ensure consistent height */
   }
 
   .audio-item p {
@@ -251,6 +251,8 @@ audio {
     text-align: left; /* Left align text */
     word-wrap: break-word; /* Allow text wrapping */
     line-height: 1.4; /* Better line spacing for wrapped text */
+    display: flex; /* Make text container flex */
+    align-items: center; /* Center the text vertically within its container */
   }
 
   .audio-card audio {
