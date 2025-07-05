@@ -13,6 +13,14 @@
     <link rel="icon" href="icon.png" type="image/png" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      /* This rule applies only to screens 768px or narrower */
+      @media (max-width: 768px) {
+        .main-content img {
+          max-width: 100% !important; /* Force images to be full-width on small screens */
+        }
+      }
+    </style>
   </head>
   <body>    <section class="page-header">      <h1 class="project-name">
         <img src="icon.png" alt="De-AntiFake Icon" style="height: 1.4em; width: auto; vertical-align: top; margin-right: 0.2em;">
