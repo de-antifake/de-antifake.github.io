@@ -159,6 +159,8 @@ audio {
       flex-direction: column;
       width: 90%;
       max-width: 400px;
+      margin-left: auto;  
+      margin-right: auto; 
     }
     .pill-nav a {
       border-right: none;
