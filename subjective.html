@@ -14,14 +14,8 @@
     <link rel="icon" href="icon.png" type="image/png" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        table {
-        transform: scale(0.8); 
-        transform-origin: top left; 
-        }
-    </style>
-  </head>
 
+  </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">🎧 Subjective Test Samples</h1>
@@ -36,8 +30,8 @@
     </a>
     <a href="https://arxiv.org/abs/2507.02606" class="pill-tier1">📄 arXiv</a>
     
-    <a href="samples.html" class="pill-tier2">🔊 Audio Samples</a>
-    <a href="subjective.html" class="pill-tier2 active">🎧 Subjective Test</a>
+    <a href="samples.html" class="pill-tier2">🔊 Audio Demos</a>
+    <a href="subjective.html" class="pill-tier2 active">🎧 Subjective Samples</a>
   </nav>
 
   <div class="supplemental-links">
@@ -133,6 +127,80 @@
 
     </div>
 </section>
+<script>
+    function handleRowBasedTableLayout() {
+        console.log("Running ROW-based transform function..."); // Log: Function starts
 
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+        document.querySelectorAll("table").forEach(function(table, tableIndex) {
+            let cardContainer = table.nextElementSibling;
+            if (!cardContainer || !cardContainer.classList.contains('card-grid-container')) {
+                cardContainer = null;
+            }
+
+            if (isMobile) {
+                // --- MOBILE VIEW ---
+                if (!table.dataset.transformed) {
+                    console.log(`[Table #${tableIndex + 1}] Mobile view detected. Transforming table to row-based cards...`);
+
+                    table.classList.add("audio-table");
+
+                    // Robustly get all headers
+                    const headers = Array.from(table.querySelectorAll("tr:first-of-type th")).map(th => th.textContent.trim());
+                    console.log(`[Table #${tableIndex + 1}] Found ${headers.length} headers:`, headers);
+
+                    // THIS IS THE CORRECTED PART: Get all TRs and slice the first one off
+                    const rows = Array.from(table.querySelectorAll("tr")).slice(1);
+                    console.log(`[Table #${tableIndex + 1}] Found ${rows.length} data rows.`);
+
+                    if (headers.length === 0 || rows.length === 0) {
+                        console.error(`[Table #${tableIndex + 1}] Invalid structure. Skipping.`);
+                        return;
+                    }
+
+                    const newCardContainer = document.createElement("div");
+                    newCardContainer.className = "card-grid-container";
+                    
+                    rows.forEach((row, rowIndex) => {
+                        const card = document.createElement("div");
+                        card.className = "audio-card";
+                        
+                        const cells = row.querySelectorAll("td");
+                        if (cells.length === 0) return;
+
+                        const title = cells[0].textContent.trim();
+                        let cardHTML = `<h3>${title}</h3>`;
+
+                        for (let i = 1; i < cells.length; i++) {
+                            const audioPlayer = cells[i].querySelector("audio");
+                            const label = headers[i];
+                            if (audioPlayer && label) {
+                                cardHTML += `<div class="audio-item"><p>${label}</p>${audioPlayer.outerHTML}</div>`;
+                            }
+                        }
+                        card.innerHTML = cardHTML;
+                        newCardContainer.appendChild(card);
+                    });
+                    
+                    table.parentNode.insertBefore(newCardContainer, table.nextSibling);
+                    table.dataset.transformed = "true";
+                    console.log(`[Table #${tableIndex + 1}] Transformation successful.`);
+                }
+                
+                table.style.display = "none";
+                if (cardContainer) cardContainer.style.display = "block";
+
+            } else {
+                // --- DESKTOP VIEW ---
+                table.style.display = "table";
+                if (cardContainer) cardContainer.style.display = "none";
+            }
+        });
+    }
+
+    window.addEventListener("DOMContentLoaded", handleRowBasedTableLayout);
+    window.addEventListener("resize", handleRowBasedTableLayout);
+</script>
 </body>
 </html>
