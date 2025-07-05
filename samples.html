@@ -4,7 +4,7 @@
   
   <head>
     <meta charset="UTF-8" />
-    <title>Audio Samples</title>
+    <title>Audio Demos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#157878" />
     <link rel="stylesheet" href="css/normalize.css" />
@@ -14,11 +14,10 @@
     <link rel="icon" href="icon.png" type="image/png" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  </head>
-
+</head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">🔊 Audio Samples</h1>
+      <h1 class="project-name">🔊 Audio Demos</h1>
       <h2 class="project-tagline">De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks</h2>
       
       <!-- first line -->
@@ -32,8 +31,8 @@
     </a>
     <a href="https://arxiv.org/abs/2507.02606" class="pill-tier1">📄 arXiv</a>
     
-    <a href="samples.html" class="pill-tier2 active">🔊 Audio Samples</a>
-    <a href="subjective.html" class="pill-tier2">🎧 Subjective Test</a>
+    <a href="samples.html" class="pill-tier2 active">🔊 Audio Demos</a>
+    <a href="subjective.html" class="pill-tier2">🎧 Subjective Samples</a>
   </nav>
 
   <div class="supplemental-links">
@@ -55,7 +54,7 @@
             <h2>Clean (No Protection)</h2>
             <table>
             <tr>
-            <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+            <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
             <tr>
             <td>Original Clean Audio</td><td><audio controls><source src="samples\seedvc\none\librispeech_p1089-134686-0027\clean-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\none\librispeech_p2300-131720-0037\clean-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -66,7 +65,7 @@
             <h2>Protection Method: AntiFake</h2>
             <table>
             <tr>
-            <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+            <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
             <tr>
             <td>Protected</td><td><audio controls><source src="samples\seedvc\antifake\librispeech_p1089-134686-0027\protect-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\seedvc\antifake\librispeech_p2300-131720-0037\protect-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -89,7 +88,7 @@
             <h2>Protection Method: AttackVC</h2>
             <table>
             <tr>
-            <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+            <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
             <tr>
             <td>Protected</td><td><audio controls><source src="samples\coqui\attack\librispeech_p1089-134686-0027\protect-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\coqui\attack\librispeech_p2300-131720-0037\protect-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -112,7 +111,7 @@
             <h2>Protection Method: VoiceGuard</h2>
             <table>
             <tr>
-            <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+            <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
             <tr>
             <td>Protected</td><td><audio controls><source src="samples\coqui\voiceguard\librispeech_p1089-134686-0027\protect-source-source-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
             <td><audio controls><source src="samples\coqui\voiceguard\librispeech_p2300-131720-0037\protect-source-source-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -137,7 +136,7 @@
             <h3>Protection Method: AntiFake | Voice Cloning Method: SeedVC</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\seedvc\none\librispeech_p1089-134686-0027\clean-seedvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\seedvc\none\librispeech_p2300-131720-0037\clean-seedvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -166,7 +165,7 @@
             <h3>Protection Method: AntiFake | Voice Cloning Method: Tortoise</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\tortoise\none\librispeech_p1089-134686-0027\clean-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\none\librispeech_p2300-131720-0037\clean-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -195,7 +194,7 @@
             <h3>Protection Method: AntiFake | Voice Cloning Method: OpenVoice</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\openvoice\none\librispeech_p1089-134686-0027\clean-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\none\librispeech_p2300-131720-0037\clean-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -224,7 +223,7 @@
             <h3>Protection Method: AntiFake | Voice Cloning Method: SV2TTS</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\rtvc\none\librispeech_p1089-134686-0027\clean-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\none\librispeech_p2300-131720-0037\clean-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -253,7 +252,7 @@
             <h3>Protection Method: AntiFake | Voice Cloning Method: DiffVC</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\diffvc\none\librispeech_p1089-134686-0027\clean-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\none\librispeech_p2300-131720-0037\clean-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -282,7 +281,7 @@
             <h3>Protection Method: AntiFake | Voice Cloning Method: YourTTS</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\coqui\none\librispeech_p1089-134686-0027\clean-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\none\librispeech_p2300-131720-0037\clean-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -312,7 +311,7 @@
             <h3>Protection Method: AttackVC | Voice Cloning Method: Tortoise</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\tortoise\none\librispeech_p1089-134686-0027\clean-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\none\librispeech_p2300-131720-0037\clean-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -341,7 +340,7 @@
             <h3>Protection Method: AttackVC | Voice Cloning Method: OpenVoice</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\openvoice\none\librispeech_p1089-134686-0027\clean-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\none\librispeech_p2300-131720-0037\clean-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -370,7 +369,7 @@
             <h3>Protection Method: AttackVC | Voice Cloning Method: SV2TTS</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\rtvc\none\librispeech_p1089-134686-0027\clean-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\none\librispeech_p2300-131720-0037\clean-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -399,7 +398,7 @@
             <h3>Protection Method: AttackVC | Voice Cloning Method: DiffVC</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\diffvc\none\librispeech_p1089-134686-0027\clean-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\none\librispeech_p2300-131720-0037\clean-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -428,7 +427,7 @@
             <h3>Protection Method: AttackVC | Voice Cloning Method: YourTTS</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\coqui\none\librispeech_p1089-134686-0027\clean-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\none\librispeech_p2300-131720-0037\clean-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -458,7 +457,7 @@
             <h3>Protection Method: VoiceGuard | Voice Cloning Method: Tortoise</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\tortoise\none\librispeech_p1089-134686-0027\clean-tortoise-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\tortoise\none\librispeech_p2300-131720-0037\clean-tortoise-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -487,7 +486,7 @@
             <h3>Protection Method: VoiceGuard | Voice Cloning Method: OpenVoice</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\openvoice\none\librispeech_p1089-134686-0027\clean-openvoice-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\openvoice\none\librispeech_p2300-131720-0037\clean-openvoice-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -516,7 +515,7 @@
             <h3>Protection Method: VoiceGuard | Voice Cloning Method: SV2TTS</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\rtvc\none\librispeech_p1089-134686-0027\clean-rtvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\rtvc\none\librispeech_p2300-131720-0037\clean-rtvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -545,7 +544,7 @@
             <h3>Protection Method: VoiceGuard | Voice Cloning Method: DiffVC</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\diffvc\none\librispeech_p1089-134686-0027\clean-diffvc-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\diffvc\none\librispeech_p2300-131720-0037\clean-diffvc-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -574,7 +573,7 @@
             <h3>Protection Method: VoiceGuard | Voice Cloning Method: YourTTS</h3>
             <table>
                 <tr>
-                <th>File Name</th><th>librispeech_p1089-134686-0027</th><th>librispeech_p2300-131720-0037</th><th>librispeech_p3570-5694-0013</th><th>librispeech_p5142-33396-0036</th></tr>
+                <th>File (LibriSpeech)</th><th>1089-134686-0027</th><th>2300-131720-0037</th><th>3570-5694-0013</th><th>5142-33396-0036</th></tr>
                 <tr>
                 <td>Clean</td><td><audio controls><source src="samples\coqui\none\librispeech_p1089-134686-0027\clean-coqui-librispeech_p1089-134686-0027.wav" type="audio/wav"></audio></td>
                 <td><audio controls><source src="samples\coqui\none\librispeech_p2300-131720-0037\clean-coqui-librispeech_p2300-131720-0037.wav" type="audio/wav"></audio></td>
@@ -602,7 +601,85 @@
             </table>
         </div>
     </section>
+<script>
+    function handleTableLayout() {
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
+        document.querySelectorAll("table").forEach(function(table) {
+            // Find the card container that might have been created by this script
+            let cardContainer = table.nextElementSibling;
+            if (!cardContainer || !cardContainer.classList.contains('card-grid-container')) {
+                cardContainer = null;
+            }
 
+            if (isMobile) {
+                // --- MOBILE VIEW ---
+                // If cards haven't been created for this table yet, create them.
+                if (!table.dataset.transformed) {
+                    console.log("Mobile view: Transforming table to cards...");
+
+                    table.classList.add("audio-table");
+
+                    const headers = Array.from(table.querySelectorAll("tr:first-of-type th")).map(th => th.textContent.trim());
+                    const rows = Array.from(table.querySelectorAll("tr")).slice(1);
+                    
+                    if (headers.length === 0 || rows.length === 0) return;
+
+                    const columns = [];
+                    for (let i = 1; i < headers.length; i++) {
+                        columns.push({ title: headers[i], items: [] });
+                    }
+                    
+                    rows.forEach(row => {
+                        const rowHeader = row.querySelector("td:first-child");
+                        if (!rowHeader) return;
+                        const rowHeaderText = rowHeader.textContent.trim();
+                        const cells = Array.from(row.querySelectorAll("td")).slice(1);
+                        
+                        cells.forEach((cell, index) => {
+                            const audioPlayer = cell.querySelector("audio");
+                            if (audioPlayer && columns[index]) {
+                                columns[index].items.push({
+                                    label: rowHeaderText,
+                                    playerHTML: audioPlayer.outerHTML
+                                });
+                            }
+                        });
+                    });
+
+                    const newCardContainer = document.createElement("div");
+                    newCardContainer.className = "card-grid-container";
+                    columns.forEach(column => {
+                        const card = document.createElement("div");
+                        card.className = "audio-card";
+                        let cardHTML = `<h3>${column.title}</h3>`;
+                        column.items.forEach(item => {
+                            cardHTML += `<div class="audio-item"><p>${item.label}</p>${item.playerHTML}</div>`;
+                        });
+                        card.innerHTML = cardHTML;
+                        newCardContainer.appendChild(card);
+                    });
+                    
+                    table.parentNode.insertBefore(newCardContainer, table.nextSibling);
+                    table.dataset.transformed = "true";
+                }
+                
+                // Hide the original table and show the cards
+                table.style.display = "none";
+                if (cardContainer) cardContainer.style.display = "block";
+
+            } else {
+                // --- DESKTOP VIEW ---
+                // Show the original table and hide the cards
+                table.style.display = "table";
+                if (cardContainer) cardContainer.style.display = "none";
+            }
+        });
+    }
+
+    // Run the function on page load and also when the window is resized
+    window.addEventListener("DOMContentLoaded", handleTableLayout);
+    window.addEventListener("resize", handleTableLayout);
+</script>
   </body>
 </html>
