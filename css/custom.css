@@ -168,7 +168,75 @@ audio {
       text-align: center;
       border-radius: 0;
     }
-    .pill-nav a:last-child {
-      border-bottom: none;
-    }
+
+
+}
+/* --- Final Solution CSS --- */
+
+/* Part 1: Your desired minimalist style for tables on DESKTOP */
+.main-content table.audio-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.main-content table.audio-table th,
+.main-content table.audio-table td {
+  border: none !important; /* No borders */
+  padding: 8px;
+  vertical-align: middle;
+}
+.main-content table.audio-table th {
+  font-weight: 600;
+}
+.main-content table.audio-table audio {
+  max-width: 250px;
+}
+
+/* Part 2: Styles for the NEW card layout, ONLY on MOBILE */
+@media (max-width: 768px) {
+  /* This container will be created by the script */
+  .card-grid-container {
+    margin-top: 1.5rem;
   }
+  
+  /* Individual card styling */
+  .audio-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fdfdfd;
+  }
+
+  .audio-card h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    word-break: break-all; /* Prevents long filenames from overflowing */
+  }
+
+  .audio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .audio-item p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #555;
+    padding-right: 15px;
+  }
+
+  .audio-card audio {
+    width: 60%; /* Adjust width of the player */
+    max-width: 200px;
+    height: 40px;
+  }
+}
