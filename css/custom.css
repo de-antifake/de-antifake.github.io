@@ -419,6 +419,9 @@ audio {
 
 /* --- Mobile Content Readability Fixes --- */
 @media (max-width: 768px) {
+    .main-content2 {
+      margin-top: 1.5rem !important; /* Ensure space above */
+    }
     .main-content h1, .main-content2 h1 {
       font-size: 1.6rem; /* Reduce H1 size */
     }
