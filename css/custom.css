@@ -421,7 +421,6 @@ audio {
     align-items: center; /* Center align both text and audio */
     justify-content: space-between;
     margin-bottom: 10px;
-    gap: 15px; /* Fixed spacing between text and audio */
     min-height: 40px; /* Ensure consistent height */
   }
 
