@@ -37,10 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 cells.forEach((cell, index) => {
                     const audioPlayer = cell.querySelector('audio');
                     if (audioPlayer && columnsData[index]) {
-                        // Use the raw outerHTML of the audio player
+                        // 不直接保存audio标签，而是保存audio的属性
+                        const source = audioPlayer.querySelector('source');
                         columnsData[index].items.push({
                             label: rowHeaderText,
-                            playerHTML: audioPlayer.outerHTML
+                            src: source ? source.getAttribute('src') : '',
+                            type: source ? source.getAttribute('type') : '',
                         });
                     }
                 });
@@ -50,12 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardView = document.createElement('div');
             cardView.className = 'card-view';
             
-            columnsData.forEach(column => {
+            columnsData.forEach((column, colIdx) => {
                 const card = document.createElement('div');
                 card.className = 'audio-card';
                 let cardHTML = `<h3>${column.title}</h3>`;
-                column.items.forEach(item => {
-                    cardHTML += `<div class="audio-item"><p>${item.label}</p>${item.playerHTML}</div>`;
+                column.items.forEach((item, idx) => {
+                    // 用audio-item占位，data属性保存src/type
+                    cardHTML += `<div class="audio-item" data-src="${encodeURIComponent(item.src)}" data-type="${item.type}" data-loaded="false"><p>${item.label}</p><div class="audio-placeholder">Loading...</div></div>`;
                 });
                 card.innerHTML = cardHTML;
                 cardView.appendChild(card);
@@ -66,21 +69,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to toggle view based on screen size
-    function toggleView(isMobile) {
-        if (isMobile) {
-            document.body.classList.add('mobile-view');
-        } else {
-            document.body.classList.remove('mobile-view');
+    // 动态加载audio标签
+    function setupAudioLazyLoad() {
+        const audioItems = mainContent.querySelectorAll('.audio-item');
+        // 首屏优先加载前8个（移动端体验优化）
+        let preloadCount = 0;
+        audioItems.forEach(item => {
+            if (preloadCount < 8 && item.dataset.loaded === 'false') {
+                insertAudioTag(item);
+                preloadCount++;
+            }
+        });
+        if (!('IntersectionObserver' in window)) {
+            // 不支持IntersectionObserver则全部直接插入audio
+            audioItems.forEach(item => {
+                if (item.dataset.loaded === 'false') {
+                    insertAudioTag(item);
+                }
+            });
+            return;
         }
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const item = entry.target;
+                    if (item.dataset.loaded === 'false') {
+                        insertAudioTag(item);
+                    }
+                    obs.unobserve(item); // 加载后不再监听
+                }
+            });
+        }, { root: null, rootMargin: '200px', threshold: 0.01 });
+        audioItems.forEach(item => {
+            if (item.dataset.loaded === 'false') {
+                observer.observe(item);
+            }
+        });
     }
 
-    // Initial setup
-    transformTables();
-    toggleView(mediaQuery.matches);
+    function insertAudioTag(item) {
+        if (!item) return;
+        if (item.dataset.loaded === 'true') return;
+        const src = decodeURIComponent(item.dataset.src || '');
+        const type = item.dataset.type || '';
+        if (!src) return;
+        // 移除占位符
+        const placeholder = item.querySelector('.audio-placeholder');
+        if (placeholder) placeholder.remove();
+        // 创建audio标签
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.preload = 'none';
+        const source = document.createElement('source');
+        source.src = src;
+        if (type) source.type = type;
+        audio.appendChild(source);
+        item.appendChild(audio);
+        item.dataset.loaded = 'true';
+    }
 
-    // Listen for changes in viewport size
-    mediaQuery.addEventListener('change', (e) => {
-        toggleView(e.matches);
-    });
+    // Initial run
+    transformTables();
+    // 懒加载必须在卡片生成后立即调用
+    setupAudioLazyLoad();
 });
