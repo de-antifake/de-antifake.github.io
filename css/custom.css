@@ -102,25 +102,6 @@ audio {
     color: rgba(255, 255, 255, 0.5); 
     }
 
-  /* --- 4. Responsive optimization for small screens --- */
-  @media (max-width: 820px) { /* Adjusted breakpoint for the longer pill */
-    .pill-nav {
-      display: flex;
-      flex-direction: column;
-      width: 90%;
-      max-width: 400px;
-      margin-left: auto;  
-      margin-right: auto; 
-    }
-    .pill-nav a {
-      border-right: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-      border-radius: 0;
-    }
-
-
-}
 /* --- Final Solution CSS --- */
 
 /* Part 1: Your desired minimalist style for tables on DESKTOP */
@@ -140,134 +121,20 @@ audio {
   font-weight: 600;
   word-break: break-all;
 }
-/* Desktop: audio scales with table width */
-@media (min-width: 769px) {
-  .main-content table audio,
-  .main-content2 table audio {
-    width: 100%;
-    min-width: 180px;
-  }
-}
-
-/* Mobile: keep fixed width for card layout */
-@media (max-width: 768px) {
-  .main-content table audio,
-  .main-content2 table audio {
-    max-width: 250px;
-  }
-}
-
-/* Part 2: Styles for the NEW card layout, ONLY on MOBILE */
-@media (max-width: 768px) {
-  /* This container will be created by the script */
-  .card-grid-container {
-    margin-top: 1.5rem;
-    padding: 0 15px; 
-  }
-  
-  /* Individual card styling */
-  .audio-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 20px;
-    margin-right: 15px;
-    background-color: #fdfdfd;
-    max-width: 600px;
-  }
-
-  .audio-card h3 {
-    margin-top: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    word-break: break-all; /* Prevents long filenames from overflowing */
-  }  .audio-item {
-    display: flex;
-    align-items: center; /* Center align both text and audio */
-    margin-bottom: 10px;
-    gap: 15px; /* Fixed spacing between text and audio */
-    min-height: 40px; /* Ensure consistent height */
-  }
-
-  .audio-item p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: #555;
-    flex: 0 0 auto; /* Don't grow or shrink */
-    width: 30%; /* Fixed width for text area */
-    text-align: left; /* Left align text */
-    word-wrap: break-word; /* Allow text wrapping */
-    line-height: 1.4; /* Better line spacing for wrapped text */
-    display: flex; /* Make text container flex */
-    align-items: center; /* Center the text vertically within its container */
-  }
-
-  .audio-card audio {
-    flex: 0 0 auto; /* Don't grow or shrink */
-    width: 65%; /* Fixed width for audio player */
-    height: 40px;
-  }
-}
-
-
-
-/* Make main-content2 use full width on desktop */
-@media (min-width: 769px) {
-  .main-content2 {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 2rem 1rem !important;
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-  
-  /* Also ensure the home div uses full width */
-  #home {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  /* Also ensure tables use full width */
-  .main-content2 table {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-/* Fix for subjective.html table headers - allow text wrapping */
-@media (min-width: 769px) {
-  .main-content2 table th {
-    word-wrap: break-word !important;
-    word-break: break-word !important;
-    white-space: normal !important;
-    hyphens: auto !important;
-    line-height: 1.3 !important;
-    padding: 8px 4px !important;
-  }
-  
-  /* Special handling for subjective page with more columns */
-  .main-content2 table th:not(:first-child) {
-    max-width: 120px !important;
-    min-width: 100px !important;
-  }
-}
 
 /* --- New Navigation System --- */
 
 /* Main action buttons - Modern separated pill style */
 .main-buttons {
   display: flex;
-  gap: 16px;
   justify-content: center;
   align-items: center; /* Ensure vertical alignment */
-  margin: 0 0 0.75rem 0.75rem; /* Reduced bottom margin */
-  text-align: center;
-  width: 100%; /* Full width of container */
+  gap: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.75rem; /* Reduced bottom margin */
+  margin-bottom: 0.75rem; /* Reduced bottom margin */
+  width: fit-content;
   padding: 2px 0; /* Add padding to accommodate button movement */
 }
 
@@ -417,8 +284,148 @@ audio {
   filter: brightness(0.8) contrast(1.2);
 }
 
-/* --- Mobile Content Readability Fixes --- */
+
+.btn-code .icon-left { margin-right: 0.1em; }
+/* --- Responsive Layout Switching --- */
+
+/* Default (Desktop): Show tables, hide cards */
+.card-view {
+  display: none;
+}
+
+.table-view {
+  display: block;
+}
+
+
+
+
+/* Make main-content2 use full width on desktop */
+@media (min-width: 769px) {
+  .main-content-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  .main-content table audio,
+  .main-content2 table audio {
+    width: 100%;
+    min-width: 120px;
+  }
+  .main-content2 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 2rem 1rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Also ensure the home div uses full width */
+  #home {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Also ensure tables use full width */
+  .main-content2 table {
+    table-layout: fixed;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .main-content2 table th {
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    hyphens: auto !important;
+    line-height: 1.3 !important;
+    padding: 8px 4px !important;
+  }
+  .main-content2 table td {
+    word-wrap: normal !important;
+    word-break: normal !important;
+    white-space: normal !important;
+    hyphens: auto !important;
+  }
+  .main-content2 table th:first-child,
+  .main-content2 table td:first-child {
+    width: auto;
+    max-width: 80px;
+    min-width: 40px;
+    /* 可根据实际调整 */
+  }
+  
+  /* Special handling for subjective page with more columns */
+  .main-content2 table th:not(:first-child) {
+    max-width: 180px !important;
+    min-width: 100px !important;
+  }
+}
+
+/* Mobile: keep fixed width for card layout */
+/* Part 2: Styles for the NEW card layout, ONLY on MOBILE */
 @media (max-width: 768px) {
+  .main-content-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  /* This container will be created by the script */
+  .card-grid-container {
+    margin-top: 1.5rem;
+    padding: 0 15px; 
+  }
+  
+  /* Individual card styling */
+  .audio-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 15px;
+    background-color: #fdfdfd;
+    max-width: 800px;
+  }
+
+  .audio-card h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    word-break: break-all; /* Prevents long filenames from overflowing */
+  }  
+  .audio-item {
+    display: flex;
+    align-items: center; /* Center align both text and audio */
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 15px; /* Fixed spacing between text and audio */
+    min-height: 40px; /* Ensure consistent height */
+  }
+
+  .audio-item p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #555;
+    flex: 0 0 auto; /* Don't grow or shrink */
+    width: 30%; /* Fixed width for text area */
+    text-align: left; /* Left align text */
+    word-wrap: break-word; /* Allow text wrapping */
+    line-height: 1.4; /* Better line spacing for wrapped text */
+    display: flex; /* Make text container flex */
+    align-items: center; /* Center the text vertically within its container */
+    margin-right: 16px; /* space between text and audio */
+  }
+
+  .audio-card audio {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    width: 65%; /* Fixed width for audio player */
+    height: 40px;
+    max-width: 400px; /* Limit max width for audio player */
+  }
     .main-content2 {
       margin-top: 1.5rem !important; /* Ensure space above */
     }
@@ -434,10 +441,6 @@ audio {
     .main-content p, .main-content2 p {
       text-align: left; /* Change from justify to left on mobile */
     }
-  }
-
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
     /* Smaller header title */
     .page-header h1 {
       font-size: 1.8rem !important;
@@ -455,10 +458,14 @@ audio {
     /* Main buttons - maintain modern separated pill style on mobile */
     .main-buttons {
       gap: 16px; /* Slightly smaller gap on mobile */
-      margin: 0 0 0.75rem 0.75rem; /* Slightly less bottom margin on mobile */
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0.75rem; /* Reduced bottom margin */
+      margin-bottom: 0.75rem; /* Reduced bottom margin */
       flex-wrap: wrap; /* Allow wrapping if needed on very small screens */
       align-items: center; /* Ensure vertical alignment */
       padding: 2px 1rem; /* Add padding to prevent edge touching and accommodate hover movement */
+      width: fit-content !important;
     }
     
     /* Override cayman.css mobile button styles to maintain inline layout */
@@ -486,6 +493,23 @@ audio {
       width: 14px !important;
     }
     
+    .supplemental-links {
+      margin-top: 0.15rem !important;
+      margin-bottom: 1rem !important;
+      text-align: center !important; /* Ensure centering on mobile */
+      display: block !important; /* Block display for better centering */
+      width: 100% !important; /* Full width of container */
+      padding: 0 10px !important; /* Padding to prevent edge touching */
+      box-sizing: border-box !important; /* Include padding in width */
+    }
+    
+    .supplemental-links a {
+      margin: 0 8px !important; /* Restore normal spacing on mobile */
+      font-size: 13px !important; /* Slightly smaller on mobile */
+      display: inline !important; /* Ensure links stay inline */
+      word-break: keep-all !important; /* Prevent text wrapping */
+      white-space: nowrap !important; /* Keep text on one line */
+    }
     /* Page navigation - enhanced mobile style */
     .page-navigation {
       box-shadow: none;
@@ -542,10 +566,26 @@ audio {
     .page-navigation {
       margin: 0 -1rem; /* Adjust for mobile padding */
     }
+    
+    .table-view {
+      display: none;
+    }
+
+    .card-view {
+      display: block;
+    }
 }
+
+
+
 
 /* Very small screens */
 @media (max-width: 480px) {
+  .main-content-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
   .page-header h1 {
     font-size: 1.5rem !important;
   }
@@ -559,12 +599,36 @@ audio {
     border-bottom: none;
     margin-bottom: 0;
   }
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3em;
+  }
+  .project-meta .separator {
+    display: none;
+  }
+  .project-meta .conference {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.1em;
+  }
+  .supplemental-links a {
+    margin: 0 6px !important; /* Slightly tighter spacing on very small screens */
+    font-size: 12px !important; /* Even smaller text on tiny screens */
+  }
 }
 
 
 
 /* Additional override for very small screens (cayman.css uses max-width: 42em ≈ 672px) */
 @media screen and (max-width: 42em) {
+  .main-content-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
   .main-buttons .btn {
     display: inline-block !important; /* Override cayman's display: block */
     width: auto !important; /* Override cayman's width: 100% */
@@ -582,53 +646,3 @@ audio {
   }
 }
 
-/* Adjust supplemental links spacing on mobile */
-@media (max-width: 768px) {
-  .supplemental-links {
-    margin-top: 0.15rem !important;
-    margin-bottom: 1rem !important;
-    text-align: center !important; /* Ensure centering on mobile */
-    display: block !important; /* Block display for better centering */
-    width: 100% !important; /* Full width of container */
-    padding: 0 10px !important; /* Padding to prevent edge touching */
-    box-sizing: border-box !important; /* Include padding in width */
-  }
-  
-  .supplemental-links a {
-    margin: 0 8px !important; /* Restore normal spacing on mobile */
-    font-size: 13px !important; /* Slightly smaller on mobile */
-    display: inline !important; /* Ensure links stay inline */
-    word-break: keep-all !important; /* Prevent text wrapping */
-    white-space: nowrap !important; /* Keep text on one line */
-  }
-}
-
-/* Additional mobile refinements for very small screens */
-@media (max-width: 480px) {
-  .supplemental-links a {
-    margin: 0 6px !important; /* Slightly tighter spacing on very small screens */
-    font-size: 12px !important; /* Even smaller text on tiny screens */
-  }
-}
-
-/* --- Responsive Layout Switching --- */
-
-/* Default (Desktop): Show tables, hide cards */
-.card-view {
-  display: none;
-}
-
-.table-view {
-  display: block;
-}
-
-/* Mobile (max-width: 768px): Hide tables, show cards */
-@media (max-width: 768px) {
-  .table-view {
-    display: none;
-  }
-
-  .card-view {
-    display: block;
-  }
-}
