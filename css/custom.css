@@ -50,6 +50,26 @@ audio {
   .page-header h1, .page-header h2, .page-header h3 {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
   }
+/* --- 2. Project Name and Icon Styling --- */
+.project-name > a,
+.project-name > a:visited,
+.project-name > a:hover,
+.project-name > a:active,
+.project-name > a:focus {
+  box-shadow: none !important;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+.project-name > a > img {
+  filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.2));
+  box-shadow: none !important;
+  border-bottom: none !important;
+
+}
+.project-name > a:hover > img {
+  filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.4));
+  transition: all 0.2s ease;
+}
   .project-authors {
     font-size: 1.2rem;
     font-weight: 400;
