@@ -75,35 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Lazy preloading with Intersection Observer
-    function lazyPreloadAudio() {
-        const audioElements = mainContent.querySelectorAll('audio[preload="none"]');
-
-        const audioObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const audio = entry.target;
-                    if (audio.preload === 'none') {
-                        audio.preload = 'metadata';
-                    }
-                    // Stop observing the element once it has been preloaded
-                    observer.unobserve(audio);
-                }
-            });
-        }, {
-            // Start loading when the element is 200px away from the viewport
-            rootMargin: '200px' 
-        });
-
-        audioElements.forEach(audio => {
-            audioObserver.observe(audio);
-        });
-    }
-
     // Initial setup
     transformTables();
     toggleView(mediaQuery.matches);
-    lazyPreloadAudio(); // Use lazy preloading
 
     // Listen for changes in viewport size
     mediaQuery.addEventListener('change', (e) => {
