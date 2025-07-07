@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cells.forEach((cell, index) => {
                     const audioPlayer = cell.querySelector('audio');
                     if (audioPlayer && columnsData[index]) {
-                        // 不直接保存audio标签，而是保存audio的属性
+                        // Save audio attributes instead of the audio tag itself
                         const source = audioPlayer.querySelector('source');
                         columnsData[index].items.push({
                             label: rowHeaderText,
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.className = 'audio-card';
                 let cardHTML = `<h3>${column.title}</h3>`;
                 column.items.forEach((item, idx) => {
-                    // 用audio-item占位，data属性保存src/type
+                    // Use audio-item as placeholder, store src/type in data attributes
                     cardHTML += `<div class="audio-item" data-src="${encodeURIComponent(item.src)}" data-type="${item.type}" data-loaded="false"><p>${item.label}</p><div class="audio-placeholder">Loading...</div></div>`;
                 });
                 card.innerHTML = cardHTML;
@@ -69,10 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 动态加载audio标签
+    // Dynamically load and unload audio tags
+    let audioObserver = null;
     function setupAudioLazyLoad() {
         const audioItems = mainContent.querySelectorAll('.audio-item');
-        // 首屏优先加载前8个（移动端体验优化）
+        // Preload the first 8 audios for better mobile experience
         let preloadCount = 0;
         audioItems.forEach(item => {
             if (preloadCount < 8 && item.dataset.loaded === 'false') {
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         if (!('IntersectionObserver' in window)) {
-            // 不支持IntersectionObserver则全部直接插入audio
+            // If IntersectionObserver is not supported, insert all audios directly
             audioItems.forEach(item => {
                 if (item.dataset.loaded === 'false') {
                     insertAudioTag(item);
@@ -89,21 +90,23 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             return;
         }
-        const observer = new IntersectionObserver((entries, obs) => {
+        // Disconnect previous observer
+        if (audioObserver) audioObserver.disconnect();
+        audioObserver = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
+                const item = entry.target;
                 if (entry.isIntersecting) {
-                    const item = entry.target;
                     if (item.dataset.loaded === 'false') {
                         insertAudioTag(item);
                     }
-                    obs.unobserve(item); // 加载后不再监听
+                } else {
+                    // Remove audio to free resources when out of viewport
+                    removeAudioTag(item);
                 }
             });
         }, { root: null, rootMargin: '200px', threshold: 0.01 });
         audioItems.forEach(item => {
-            if (item.dataset.loaded === 'false') {
-                observer.observe(item);
-            }
+            audioObserver.observe(item);
         });
     }
 
@@ -113,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const src = decodeURIComponent(item.dataset.src || '');
         const type = item.dataset.type || '';
         if (!src) return;
-        // 移除占位符
+        // Remove placeholder
         const placeholder = item.querySelector('.audio-placeholder');
         if (placeholder) placeholder.remove();
-        // 创建audio标签
+        // Create audio tag
         const audio = document.createElement('audio');
         audio.controls = true;
         audio.preload = 'none';
@@ -128,8 +131,36 @@ document.addEventListener('DOMContentLoaded', () => {
         item.dataset.loaded = 'true';
     }
 
+    function removeAudioTag(item) {
+        if (!item) return;
+        if (item.dataset.loaded !== 'true') return;
+        const audio = item.querySelector('audio');
+        // Only unload if not playing
+        if (audio && !audio.paused) return;
+        if (audio) audio.remove();
+        // Restore placeholder
+        if (!item.querySelector('.audio-placeholder')) {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'audio-placeholder';
+            placeholder.textContent = 'Loading...';
+            item.appendChild(placeholder);
+        }
+        item.dataset.loaded = 'false';
+    }
+
+    // Rebind observer when page is restored
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            setupAudioLazyLoad();
+        }
+    });
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted || !document.hidden) {
+            setupAudioLazyLoad();
+        }
+    });
+
     // Initial run
     transformTables();
-    // 懒加载必须在卡片生成后立即调用
     setupAudioLazyLoad();
 });
