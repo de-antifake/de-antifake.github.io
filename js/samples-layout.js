@@ -124,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // Ensure observer binding is refreshed after each group switch
         updateAudioLazyLoadForVisible();
+        cleanupAllAudioTags(); // clean up all audio tags on switch
+        updateAudioLazyLoadForVisible(); // rebind lazy loading
     }
     function showOutputGroup(output) {
         // 1. Hide all output group tables and their views
@@ -168,6 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // Ensure observer binding is refreshed after each group switch
         updateAudioLazyLoadForVisible();
+        cleanupAllAudioTags(); // remove all audio tags on switch
+        updateAudioLazyLoadForVisible(); // rebind lazy loading
+    }
+
+    // Cleanup all audio tags on switch
+    function cleanupAllAudioTags() {
+        const allAudioItems = mainContent.querySelectorAll('.audio-item');
+        allAudioItems.forEach(item => removeAudioTag(item));
     }
 
     // Lazy load only bind visible groups
@@ -177,9 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         allAudioItems.forEach(item => {
             if (item.offsetParent !== null && item.closest('[style*="display: none"]') === null) {
                 if (window.audioObserver) window.audioObserver.observe(item);
-            } else {
-                removeAudioTag(item);
             }
+            // 不再调用 removeAudioTag
         });
     }
 
@@ -210,8 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (item.dataset.loaded === 'false') {
                         insertAudioTag(item);
                     }
-                } else {
-                    removeAudioTag(item);
                 }
             });
         }, { root: null, rootMargin: '200px', threshold: 0.01 });
