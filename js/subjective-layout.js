@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!mainContent) return;
 
     const tables = mainContent.querySelectorAll('table');
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const mediaQuery = window.matchMedia('(max-width: 1199.98px)');
 
     // Function to transform tables to cards
     function transformTables() {

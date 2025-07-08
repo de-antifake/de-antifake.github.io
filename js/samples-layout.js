@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!mainContent) return;
 
     const tables = mainContent.querySelectorAll('table');
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const mediaQuery = window.matchMedia('(max-width: 1199.98px)');
 
     // Function to transform tables to cards
     function transformTables() {
@@ -160,7 +160,202 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Filtering functionality for input/output分离按钮组 ---
+    function setupSeparatedDemoFilters() {
+        const INPUTS = [
+            { key: 'all', label: 'All' },
+            { key: 'antifake', label: 'AntiFake' },
+            { key: 'attackvc', label: 'AttackVC' },
+            { key: 'voiceguard', label: 'VoiceGuard' }
+        ];
+        const OUTPUTS = [
+            { key: 'all', label: 'All' },
+            { key: 'seedvc', label: 'SeedVC' },
+            { key: 'tortoise', label: 'Tortoise' },
+            { key: 'openvoice', label: 'OpenVoice' },
+            { key: 'rtvc', label: 'SV2TTS' },
+            { key: 'diffvc', label: 'DiffVC' },
+            { key: 'coqui', label: 'YourTTS' }
+        ];
+        const home = document.getElementById('home');
+        if (!home) return;
+        // --- 分组映射 ---
+        const groupMap = {};
+        let curOutput = null, curInput = null, curH2 = null, curH3 = null;
+        Array.from(home.children).forEach((el) => {
+            if (el.tagName === 'H2') {
+                curH2 = el; curOutput = null;
+                const txt = el.textContent.toLowerCase();
+                if (txt.includes('seedvc')) curOutput = 'seedvc';
+                else if (txt.includes('tortoise')) curOutput = 'tortoise';
+                else if (txt.includes('openvoice')) curOutput = 'openvoice';
+                else if (txt.includes('sv2tts')) curOutput = 'rtvc';
+                else if (txt.includes('diffvc')) curOutput = 'diffvc';
+                else if (txt.includes('yourtts')) curOutput = 'coqui';
+                else curOutput = null;
+            }
+            if (el.tagName === 'H3') {
+                curH3 = el; curInput = null;
+                const txt = el.textContent.toLowerCase();
+                if (txt.includes('antifake')) curInput = 'antifake';
+                else if (txt.includes('attackvc')) curInput = 'attackvc';
+                else if (txt.includes('voiceguard')) curInput = 'voiceguard';
+                else curInput = null;
+            }
+            if (el.tagName === 'TABLE') {
+                let outKey = curOutput || 'input';
+                let inKey = curInput || 'all';
+                if (!groupMap[outKey]) groupMap[outKey] = {};
+                if (!groupMap[outKey][inKey]) groupMap[outKey][inKey] = [];
+                groupMap[outKey][inKey].push({ h2: curH2, h3: curH3, table: el });
+            }
+        });
+        // transformTables after groupMap is ready
+        function patchTableViews() {
+            Object.values(groupMap).forEach(outGrp => {
+                Object.values(outGrp).forEach(arr => {
+                    arr.forEach(g => {
+                        if (g.table) {
+                            g.tableView = g.table.closest('.table-view');
+                            g.cardView = g.tableView && g.tableView.nextElementSibling && g.tableView.nextElementSibling.classList.contains('card-view') ? g.tableView.nextElementSibling : null;
+                        }
+                    });
+                });
+            });
+        }
+        // --- insert filter groups ---
+        const h1s = Array.from(home.children).filter(el => el.tagName === 'H1');
+        const inputH1 = h1s[1];
+        const outputH1 = h1s[2];
+        // input checkbox
+        let inputFilterDiv = document.getElementById('inputGroupWrap');
+        if (!inputFilterDiv) {
+            inputFilterDiv = document.createElement('div');
+            inputFilterDiv.id = 'inputGroupWrap';
+            inputFilterDiv.style.margin = '1.2em 0 1.5em 0';
+            inputFilterDiv.innerHTML = `<div style="display:flex;gap:0.5em;flex-wrap:wrap;align-items:center;"><span style="font-weight:600;min-width:120px;">Voice Cloning Input:</span><div id="inputGroup" style="display:flex;gap:0.5em;flex-wrap:wrap;"></div></div>`;
+            if (inputH1) inputH1.parentNode.insertBefore(inputFilterDiv, inputH1.nextSibling);
+        }
+        // output checkbox
+        let outputFilterDiv = document.getElementById('outputGroupWrap');
+        if (!outputFilterDiv) {
+            outputFilterDiv = document.createElement('div');
+            outputFilterDiv.id = 'outputGroupWrap';
+            outputFilterDiv.style.margin = '1.2em 0 1.5em 0';
+            outputFilterDiv.innerHTML = `<div style="display:flex;gap:0.5em;flex-wrap:wrap;align-items:center;"><span style="font-weight:600;min-width:120px;">Voice Cloning Output:</span><div id="outputGroup" style="display:flex;gap:0.5em;flex-wrap:wrap;"></div></div>`;
+            if (outputH1) outputH1.parentNode.insertBefore(outputFilterDiv, outputH1.nextSibling);
+        }
+        // render radio buttons
+        function renderRadios(group, arr, defaultKey, onChange) {
+            group.innerHTML = '';
+            arr.forEach(opt => {
+                const id = group.id + '_' + opt.key;
+                const label = document.createElement('label');
+                label.className = 'custom-radio-label';
+                label.style.display = 'inline-flex';
+                label.style.alignItems = 'center';
+                label.style.gap = '0.3em';
+                label.style.fontWeight = '500';
+                label.style.color = '#157878';
+                label.style.fontSize = '1em';
+                label.style.marginRight = '0.7em';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = group.id + '_radio';
+                radio.value = opt.key;
+                radio.id = id;
+                radio.checked = (opt.key === defaultKey);
+                radio.className = 'custom-radio-input';
+                radio.addEventListener('change', () => {
+                    if (radio.checked) onChange(radio.value);
+                });
+                label.appendChild(radio);
+                // custom circle style
+                const customCircle = document.createElement('span');
+                customCircle.className = 'custom-radio-circle';
+                label.appendChild(customCircle);
+                label.appendChild(document.createTextNode(opt.label));
+                group.appendChild(label);
+            });
+        }
+        // input radio filter
+        function filterInputGroups(inputKey) {
+            if (!inputKey) inputKey = 'antifake';
+            if (groupMap['input']) {
+                Object.values(groupMap['input']).flat().forEach(g => {
+                    if (g.h2) g.h2.style.display = 'none';
+                    if (g.h3) g.h3.style.display = 'none';
+                    if (g.tableView) g.tableView.style.display = 'none';
+                    if (g.cardView) g.cardView.style.display = 'none';
+                });
+                if (inputKey === 'all') {
+                    Object.values(groupMap['input']).flat().forEach(g => {
+                        if (g.h2) g.h2.style.display = '';
+                        if (g.h3) g.h3.style.display = '';
+                        if (g.tableView) g.tableView.style.display = '';
+                        if (g.cardView) g.cardView.style.display = '';
+                    });
+                } else {
+                    if (groupMap['input'][inputKey]) {
+                        groupMap['input'][inputKey].forEach(g => {
+                            if (g.h2) g.h2.style.display = '';
+                            if (g.h3) g.h3.style.display = '';
+                            if (g.tableView) g.tableView.style.display = '';
+                            if (g.cardView) g.cardView.style.display = '';
+                        });
+                    }
+                }
+            }
+        }
+        // output radio filter
+        function filterOutputGroups(outputKey) {
+            if (!outputKey) outputKey = 'seedvc';
+            Object.keys(groupMap).forEach(outK => {
+                if (outK === 'input') return;
+                Object.values(groupMap[outK]).flat().forEach(g => {
+                    if (g.h2) g.h2.style.display = 'none';
+                    if (g.h3) g.h3.style.display = 'none';
+                    if (g.tableView) g.tableView.style.display = 'none';
+                    if (g.cardView) g.cardView.style.display = 'none';
+                });
+            });
+            if (outputKey === 'all') {
+                Object.keys(groupMap).forEach(outK => {
+                    if (outK === 'input') return;
+                    Object.values(groupMap[outK]).flat().forEach(g => {
+                        if (g.h2) g.h2.style.display = '';
+                        if (g.h3) g.h3.style.display = '';
+                        if (g.tableView) g.tableView.style.display = '';
+                        if (g.cardView) g.cardView.style.display = '';
+                    });
+                });
+            } else {
+                if (groupMap[outputKey]) {
+                    Object.values(groupMap[outputKey]).flat().forEach(g => {
+                        if (g.h2) g.h2.style.display = 'none'; // when output≠all, hide h2
+                        if (g.h3) g.h3.style.display = '';
+                        if (g.tableView) g.tableView.style.display = '';
+                        if (g.cardView) g.cardView.style.display = '';
+                    });
+                }
+            }
+        }
+        // render radio buttons
+        renderRadios(document.getElementById('inputGroup'), INPUTS, 'antifake', filterInputGroups);
+        renderRadios(document.getElementById('outputGroup'), OUTPUTS, 'seedvc', filterOutputGroups);
+        // transformTables after renderRadios to ensure tableView/cardView references are set
+        window.__patchTableViews = patchTableViews;
+        window.__filterInputGroups = filterInputGroups;
+        window.__filterOutputGroups = filterOutputGroups;
+    }
+
     // Initial run
+    setupSeparatedDemoFilters();
     transformTables();
+    if (window.__patchTableViews && window.__filterInputGroups && window.__filterOutputGroups) {
+        window.__patchTableViews();
+        window.__filterInputGroups(['antifake']);
+        window.__filterOutputGroups(['seedvc']);
+    }
     setupAudioLazyLoad();
 });
