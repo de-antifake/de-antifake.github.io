@@ -319,14 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     const OUTPUTS = [
         { key: 'all', label: 'All' },
-        { key: 'seedvc', label: 'SeedVC' },
         { key: 'tortoise', label: 'Tortoise' },
         { key: 'openvoice', label: 'OpenVoice' },
         { key: 'rtvc', label: 'SV2TTS' },
         { key: 'diffvc', label: 'DiffVC' },
-        { key: 'coqui', label: 'YourTTS' }
+        { key: 'coqui', label: 'YourTTS' },
+        { key: 'seedvc', label: 'SeedVC' }
     ];
-    let curInput = 'antifake', curOutput = 'seedvc';
+    let curInput = 'antifake', curOutput = 'tortoise';
     renderRadios(document.getElementById('inputGroup'), INPUTS, curInput, (val) => {
         curInput = val;
         showInputGroup(curInput);
