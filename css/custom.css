@@ -484,7 +484,8 @@ audio {
   .card-view {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px 10px; /* 行间距20px，列间距15px，可根据需要调整 */
+    gap: 15px 10px; /* 15px between rows, 10px between columns */
+    margin-top: 1.5rem; /* Ensure space above */
   }
 }
 
