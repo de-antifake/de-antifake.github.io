@@ -2,19 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.querySelector('.main-content2');
     if (!mainContent) return;
 
-    // New: Directly get all tables with group tags
-    function getTablesByGroup(input, output) {
-        let selector = 'table';
-        if (input && input !== 'all') selector += `[data-input="${input}"]`;
-        if (output && output !== 'all') selector += `[data-output="${output}"]`;
-        return Array.from(mainContent.querySelectorAll(selector));
-    }
-
     // Transform a single table into card view
     function transformTable(table) {
         if (table.closest('.table-view')) return;
         const tableView = document.createElement('div');
         tableView.className = 'table-view';
+        // add table-view data-group attribute
+        if (table.dataset.output === 'input') {
+            tableView.setAttribute('data-group', 'input');
+        } else {
+            tableView.setAttribute('data-group', 'output');
+        }
         table.parentNode.insertBefore(tableView, table);
         tableView.appendChild(table);
         const headers = Array.from(table.querySelectorAll('tr:first-of-type th')).map(th => th.textContent.trim());
@@ -43,6 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const cardView = document.createElement('div');
         cardView.className = 'card-view';
+        // add card-view data-group attribute
+        if (table.dataset.output === 'input') {
+            cardView.setAttribute('data-group', 'input');
+        } else {
+            cardView.setAttribute('data-group', 'output');
+        }
         columnsData.forEach((column) => {
             const card = document.createElement('div');
             card.className = 'audio-card';
@@ -59,31 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cardView.appendChild(card);
         });
         tableView.parentNode.insertBefore(cardView, tableView.nextSibling);
-        // Only keep observer binding, remove first screen insertAudioTag related code
-        updateAudioLazyLoadForVisible();
-    }
-
-    // Lazy transform + show target group
-    function showGroup(input, output) {
-        // 1. Hide all tables and their views
-        mainContent.querySelectorAll('table').forEach(table => {
-            table.style.display = 'none';
-            const tv = table.closest('.table-view');
-            if (tv) tv.style.display = 'none';
-            const cv = tv && tv.nextElementSibling && tv.nextElementSibling.classList.contains('card-view') ? tv.nextElementSibling : null;
-            if (cv) cv.style.display = 'none';
-        });
-        // 2. Show target group tables and their views (transform if not yet transformed)
-        const tables = getTablesByGroup(input, output);
-        tables.forEach(table => {
-            table.style.display = '';
-            if (!table.closest('.table-view')) transformTable(table);
-            const tv = table.closest('.table-view');
-            if (tv) tv.style.display = '';
-            const cv = tv && tv.nextElementSibling && tv.nextElementSibling.classList.contains('card-view') ? tv.nextElementSibling : null;
-            if (cv) cv.style.display = '';
-        });
-        updateAudioLazyLoadForVisible();
     }
 
     // New: Separate input/output group display logic
@@ -122,10 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 title.style.display = '';
             }
         });
-        // Ensure observer binding is refreshed after each group switch
-        updateAudioLazyLoadForVisible();
-        cleanupAllAudioTags(); // clean up all audio tags on switch
-        updateAudioLazyLoadForVisible(); // rebind lazy loading
+        // Ensure observer binding only refreshes input section
+        updateAudioLazyLoadForVisible('input');
+        cleanupAllAudioTags('input'); // clean up all audio tags on switch
+        updateAudioLazyLoadForVisible('input'); // rebind lazy loading
+        lazyPreloadTableViewAudio(); // lazy load table-view audio metadata
     }
     function showOutputGroup(output) {
         // 1. Hide all output group tables and their views
@@ -168,27 +148,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-        // Ensure observer binding is refreshed after each group switch
-        updateAudioLazyLoadForVisible();
-        cleanupAllAudioTags(); // remove all audio tags on switch
-        updateAudioLazyLoadForVisible(); // rebind lazy loading
+        // Ensure observer binding only refreshes output section
+        updateAudioLazyLoadForVisible('output');
+        cleanupAllAudioTags('output'); // remove all audio tags on switch
+        updateAudioLazyLoadForVisible('output'); // rebind lazy loading
+        lazyPreloadTableViewAudio(); // lazy load table-view audio metadata on switch
     }
 
     // Cleanup all audio tags on switch
-    function cleanupAllAudioTags() {
-        const allAudioItems = mainContent.querySelectorAll('.audio-item');
+    function cleanupAllAudioTags(group) {
+        let selector = '.audio-item';
+        if (group) selector = `.card-view[data-group="${group}"] .audio-item`;
+        const allAudioItems = Array.from(mainContent.querySelectorAll(selector));
         allAudioItems.forEach(item => removeAudioTag(item));
     }
 
     // Lazy load only bind visible groups
-    function updateAudioLazyLoadForVisible() {
+    function updateAudioLazyLoadForVisible(group) {
         if (window.audioObserver) window.audioObserver.disconnect();
-        const allAudioItems = mainContent.querySelectorAll('.audio-item');
+        let selector = '.audio-item';
+        if (group) selector = `.card-view[data-group="${group}"] .audio-item`;
+        const allAudioItems = Array.from(mainContent.querySelectorAll(selector));
         allAudioItems.forEach(item => {
             if (item.offsetParent !== null && item.closest('[style*="display: none"]') === null) {
                 if (window.audioObserver) window.audioObserver.observe(item);
             }
-            // 不再调用 removeAudioTag
         });
     }
 
@@ -385,4 +369,27 @@ document.addEventListener('DOMContentLoaded', () => {
     showInputGroup(curInput);
     showOutputGroup(curOutput);
     setupAudioLazyLoad();
+    lazyPreloadTableViewAudio(); // lazy load table-view audio metadata
+
+    // Function to lazy load table-view audio metadata
+    function lazyPreloadTableViewAudio() {
+        const audioElements = mainContent.querySelectorAll('.table-view audio[preload="none"]');
+        if (!audioElements.length) return;
+        const audioObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const audio = entry.target;
+                    if (audio.preload === 'none') {
+                        audio.preload = 'metadata';
+                    }
+                    observer.unobserve(audio);
+                }
+            });
+        }, {
+            rootMargin: '200px'
+        });
+        audioElements.forEach(audio => {
+            audioObserver.observe(audio);
+        });
+    }
 });
