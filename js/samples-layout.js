@@ -1,20 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mainContent = document.querySelector('.main-content2');
+    const mainContent = document.querySelector('.main-content');
     if (!mainContent) return;
 
     // Transform a single table into card view
     function transformTable(table) {
-        if (table.closest('.table-view')) return;
-        const tableView = document.createElement('div');
-        tableView.className = 'table-view';
-        // add table-view data-group attribute
-        if (table.dataset.output === 'input') {
-            tableView.setAttribute('data-group', 'input');
-        } else {
-            tableView.setAttribute('data-group', 'output');
-        }
-        table.parentNode.insertBefore(tableView, table);
-        tableView.appendChild(table);
         const headers = Array.from(table.querySelectorAll('tr:first-of-type th')).map(th => th.textContent.trim());
         const rows = Array.from(table.querySelectorAll('tr')).slice(1);
         if (headers.length < 2 || rows.length === 0) return;
@@ -36,12 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         src: source ? source.getAttribute('src') : '',
                         type: source ? source.getAttribute('type') : '',
                     });
+                } else if (columnsData[index]) {
+                    columnsData[index].items.push({
+                        label: rowHeaderText,
+                        src: '',
+                        type: ''
+                    });
                 }
             });
         });
         const cardView = document.createElement('div');
         cardView.className = 'card-view';
-        // add card-view data-group attribute
+        // copy data-* attributes to cardView
+        Array.from(table.attributes).forEach(attr => {
+            if (attr.name.startsWith('data-')) {
+                cardView.setAttribute(attr.name, attr.value);
+            }
+        });
         if (table.dataset.output === 'input') {
             cardView.setAttribute('data-group', 'input');
         } else {
@@ -50,109 +50,143 @@ document.addEventListener('DOMContentLoaded', () => {
         columnsData.forEach((column) => {
             const card = document.createElement('div');
             card.className = 'audio-card';
-            let cardHTML = `<h3>${column.title}</h3>`;
-            column.items.forEach((item) => {
-                if (item.src) {
-                    cardHTML += `<div class="audio-item" data-src="${encodeURIComponent(item.src)}" data-type="${item.type}" data-loaded="false"><p>${item.label}</p><div class="audio-placeholder">Loading...</div></div>`;
-                } else {
-                    // Optional: Show gray tip when no audio
-                    cardHTML += `<div class="audio-item no-audio"><p>${item.label}</p><div class="audio-placeholder">No audio</div></div>`;
+            let cardHTML = `<h3 class="audio-card-title">LibriSpeech: ${column.title}</h3>`;
+            if (table.dataset.output === 'input') {
+                // input group rendering: group rendering with separators (no text)
+                column.items.forEach((item, idx) => {
+                    if (idx === 1 || idx === 2) {
+                        cardHTML += '<div class="audio-group-title"></div>';
+                    }
+                    if (item.src) {
+                        cardHTML += `<div class="audio-item" data-src="${encodeURIComponent(item.src)}" data-type="${item.type}" data-loaded="false"><p>${item.label}</p><div class="audio-placeholder">Loading...</div></div>`;
+                    } else {
+                        cardHTML += `<div class="audio-item no-audio"><p>${item.label}</p><div class="audio-placeholder">No audio</div></div>`;
+                    }
+                });
+            } else {
+                // output group rendering: group rendering with titles
+                if (column.items.length > 0) {
+                    cardHTML += '<div class="audio-group-title">Original Clean</div>';
+                    if (column.items[0].src) {
+                        cardHTML += `<div class="audio-item" data-src="${encodeURIComponent(column.items[0].src)}" data-type="${column.items[0].type}" data-loaded="false"><p>${column.items[0].label}</p><div class="audio-placeholder">Loading...</div></div>`;
+                    } else {
+                        cardHTML += `<div class="audio-item no-audio"><p>${column.items[0].label}</p><div class="audio-placeholder">No audio</div></div>`;
+                    }
                 }
-            });
+                if (column.items.length > 1) {
+                    cardHTML += '<div class="audio-group-title">Synthesized</div>';
+                    for (let i = 1; i < column.items.length; i++) {
+                        if (column.items[i].src) {
+                            cardHTML += `<div class="audio-item" data-src="${encodeURIComponent(column.items[i].src)}" data-type="${column.items[i].type}" data-loaded="false"><p>${column.items[i].label}</p><div class="audio-placeholder">Loading...</div></div>`;
+                        } else {
+                            cardHTML += `<div class="audio-item no-audio"><p>${column.items[i].label}</p><div class="audio-placeholder">No audio</div></div>`;
+                        }
+                    }
+                }
+            }
             card.innerHTML = cardHTML;
             cardView.appendChild(card);
         });
-        tableView.parentNode.insertBefore(cardView, tableView.nextSibling);
+        table.parentNode.insertBefore(cardView, table.nextSibling);
+        table.remove();
+    }
+
+    // Find card-views and tables based on group and input/output
+    function findGroupViews({ group, input, output }) {
+        const selector = group === 'input'
+            ? (input && input !== 'all' ? `.card-view[data-group="input"][data-input="${input}"]` : '.card-view[data-group="input"]')
+            : (output && output !== 'all' ? `.card-view[data-group="output"][data-output="${output}"]` : '.card-view[data-group="output"]');
+        const cardViews = Array.from(mainContent.querySelectorAll(selector));
+        // Find all tables that have not been transformed
+        let tableSelector = group === 'input'
+            ? (input && input !== 'all' ? `table[data-output="input"][data-input="${input}"]` : 'table[data-output="input"]')
+            : (output && output !== 'all' ? `table[data-output="${output}"]` : 'table:not([data-output="input"])');
+        const tables = Array.from(mainContent.querySelectorAll(tableSelector));
+        return { cardViews, tables };
     }
 
     // New: Separate input/output group display logic
     function showInputGroup(input) {
-        // 1. Hide all input group tables and their views
-        mainContent.querySelectorAll('table[data-output="input"]').forEach(table => {
-            table.style.display = 'none';
-            const tv = table.closest('.table-view');
-            if (tv) tv.style.display = 'none';
-            const cv = tv && tv.nextElementSibling && tv.nextElementSibling.classList.contains('card-view') ? tv.nextElementSibling : null;
-            if (cv) cv.style.display = 'none';
-        });
-        // 2. Hide all input group related h3 (only hide h3 related to input group tables)
+        // 1. Hide all input group card-views
+        mainContent.querySelectorAll('.card-view[data-group="input"]').forEach(cv => { cv.style.display = 'none'; });
+        // 2. Hide all input group tables (not yet transformed)
+        mainContent.querySelectorAll('table[data-output="input"]').forEach(table => { table.style.display = 'none'; });
+        // 3. Hide all related h3 titles
+        // (This step is not strictly necessary with the new logic, but kept for clarity)
         const inputTitles = new Set();
-        mainContent.querySelectorAll('table[data-output="input"]').forEach(table => {
-            const titles = tableTitleMap.get(table) || [];
+        mainContent.querySelectorAll('table[data-output="input"], .card-view[data-group="input"]').forEach(ele => {
+            const titles = tableTitleMap.get(ele) || [];
             titles.forEach(title => { if (title.tagName === 'H3') inputTitles.add(title); });
         });
         inputTitles.forEach(title => { title.style.display = 'none'; });
-        // 3. Show target input group tables and their views
-        let selector = 'table[data-output="input"]';
-        if (input && input !== 'all') selector += `[data-input="${input}"]`;
-        const visibleTables = Array.from(mainContent.querySelectorAll(selector));
-        visibleTables.forEach(table => {
+        // 4. Find target card-views and tables
+        const { cardViews, tables } = findGroupViews({ group: 'input', input });
+        // 5. Transform tables if not yet transformed
+        tables.forEach(table => {
             table.style.display = '';
-            if (!table.closest('.table-view')) transformTable(table);
-            const tv = table.closest('.table-view');
-            if (tv) tv.style.display = '';
-            const cv = tv && tv.nextElementSibling && tv.nextElementSibling.classList.contains('card-view') ? tv.nextElementSibling : null;
-            if (cv) cv.style.display = '';
+            transformTable(table);
         });
-        // 4. Only show h3 with visible tables
-        inputTitles.forEach(title => {
-            const tables = titleTableMap.get(title) || [];
-            if (tables.some(table => table.style.display !== 'none')) {
-                title.style.display = '';
+        // 6. Show target card-views
+        const { cardViews: cardViews2 } = findGroupViews({ group: 'input', input });
+        cardViews2.forEach(cv => { cv.style.display = ''; });
+        // 7. Show h3 only if its following table or card-view is visible
+        mainContent.querySelectorAll('h3').forEach(title => {
+            if (title.classList.contains('audio-card-title')) return; 
+            let next = title.nextElementSibling;
+            let show = false;
+            while (next && (next.tagName === 'TABLE' || (next.classList && next.classList.contains('card-view')))) {
+                if (next.style.display !== 'none') show = true;
+                next = next.nextElementSibling;
             }
+            title.style.display = show ? '' : 'none';
         });
-        // Ensure observer binding only refreshes input section
         updateAudioLazyLoadForVisible('input');
-        cleanupAllAudioTags('input'); // clean up all audio tags on switch
-        updateAudioLazyLoadForVisible('input'); // rebind lazy loading
-        lazyPreloadTableViewAudio(); // lazy load table-view audio metadata
+        cleanupAllAudioTags('input');
+        updateAudioLazyLoadForVisible('input');
     }
     function showOutputGroup(output) {
-        // 1. Hide all output group tables and their views
-        mainContent.querySelectorAll('table:not([data-output="input"])').forEach(table => {
-            table.style.display = 'none';
-            const tv = table.closest('.table-view');
-            if (tv) tv.style.display = 'none';
-            const cv = tv && tv.nextElementSibling && tv.nextElementSibling.classList.contains('card-view') ? tv.nextElementSibling : null;
-            if (cv) cv.style.display = 'none';
-        });
-        // 2. Hide all output group related h2/h3 (only hide h2/h3 related to output group tables)
+        // 1. Hide all output group card-views
+        mainContent.querySelectorAll('.card-view[data-group="output"]').forEach(cv => { cv.style.display = 'none'; });
+        // 2. Hide all output group tables (not yet transformed)
+        mainContent.querySelectorAll('table:not([data-output="input"])').forEach(table => { table.style.display = 'none'; });
+        // 3. Hide all related h2/h3 titles (not strictly necessary with new logic)
         const outputTitles = new Set();
-        mainContent.querySelectorAll('table:not([data-output="input"])').forEach(table => {
-            const titles = tableTitleMap.get(table) || [];
+        mainContent.querySelectorAll('table:not([data-output="input"]), .card-view[data-group="output"]').forEach(ele => {
+            const titles = tableTitleMap.get(ele) || [];
             titles.forEach(title => outputTitles.add(title));
         });
         outputTitles.forEach(title => { title.style.display = 'none'; });
-        // 3. Show target output group tables and their views
-        let selector = 'table';
-        if (output && output !== 'all') selector += `[data-output="${output}"]`;
-        else selector += ':not([data-output="input"])';
-        const visibleTables = Array.from(mainContent.querySelectorAll(selector));
-        visibleTables.forEach(table => {
+        // 4. Find target card-views and tables
+        const { cardViews, tables } = findGroupViews({ group: 'output', output });
+        // 5. Transform tables if not yet transformed
+        tables.forEach(table => {
             table.style.display = '';
-            if (!table.closest('.table-view')) transformTable(table);
-            const tv = table.closest('.table-view');
-            if (tv) tv.style.display = '';
-            const cv = tv && tv.nextElementSibling && tv.nextElementSibling.classList.contains('card-view') ? tv.nextElementSibling : null;
-            if (cv) cv.style.display = '';
+            transformTable(table);
         });
-        // 4. Only show h2/h3 with visible tables
-        outputTitles.forEach(title => {
-            const tables = titleTableMap.get(title) || [];
-            if (tables.some(table => table.style.display !== 'none')) {
-                // New: Only show h3 when output !== 'all', hide h2
-                if (output !== 'all' && title.tagName === 'H2') {
-                    title.style.display = 'none';
-                } else {
-                    title.style.display = '';
-                }
+        // 6. Show target card-views
+        const { cardViews: cardViews2 } = findGroupViews({ group: 'output', output });
+        cardViews2.forEach(cv => { cv.style.display = ''; });
+        // 7. Show h2/h3 only if its following table or card-view is visible
+        mainContent.querySelectorAll('h2, h3').forEach(title => {
+            if (title.classList.contains('audio-card-title')) return; 
+            let next = title.nextElementSibling;
+            let show = false;
+            while (next && (next.tagName === 'TABLE' || (next.classList && next.classList.contains('card-view')))) {
+                if (next.style.display !== 'none') show = true;
+                next = next.nextElementSibling;
+            }
+            // Show all h2 if output === 'all', otherwise keep previous logic
+            if (title.tagName === 'H2' && output === 'all') {
+                title.style.display = '';
+            } else if (output !== 'all' && title.tagName === 'H2') {
+                title.style.display = 'none';
+            } else {
+                title.style.display = show ? '' : 'none';
             }
         });
-        // Ensure observer binding only refreshes output section
         updateAudioLazyLoadForVisible('output');
-        cleanupAllAudioTags('output'); // remove all audio tags on switch
-        updateAudioLazyLoadForVisible('output'); // rebind lazy loading
-        lazyPreloadTableViewAudio(); // lazy load table-view audio metadata on switch
+        cleanupAllAudioTags('output');
+        updateAudioLazyLoadForVisible('output');
     }
 
     // Cleanup all audio tags on switch
@@ -257,59 +291,49 @@ document.addEventListener('DOMContentLoaded', () => {
         updateAudioLazyLoadForVisible();
     });
 
-    // Render radio controls
-    function renderRadios(group, arr, defaultKey, onChange) {
+    function renderRadios(group, options, defaultKey, onChangeCallback) {
         group.innerHTML = '';
-        arr.forEach(opt => {
-            const id = group.id + '_' + opt.key;
+        group.className = 'radio-options-container';
+
+        options.forEach(opt => {
             const label = document.createElement('label');
             label.className = 'custom-radio-label';
-            label.style.display = 'inline-flex';
-            label.style.alignItems = 'center';
-            label.style.gap = '0.3em';
-            label.style.fontWeight = '500';
-            label.style.color = '#157878';
-            label.style.fontSize = '1em';
-            label.style.marginRight = '0.7em';
+
             const radio = document.createElement('input');
             radio.type = 'radio';
-            radio.name = group.id + '_radio';
+            radio.name = group.id + '_radio'; 
             radio.value = opt.key;
-            radio.id = id;
-            radio.checked = (opt.key === defaultKey);
+            radio.id = `${group.id}_${opt.key}`;
             radio.className = 'custom-radio-input';
-            radio.addEventListener('change', () => {
-                if (radio.checked) onChange(radio.value);
-            });
+
+            if (opt.key === defaultKey) {
+                radio.checked = true;
+                label.classList.add('is-checked');
+            }
+
             label.appendChild(radio);
             const customCircle = document.createElement('span');
             customCircle.className = 'custom-radio-circle';
             label.appendChild(customCircle);
             label.appendChild(document.createTextNode(opt.label));
+
             group.appendChild(label);
         });
-    }
 
-    // Control insertion and event binding
-    const home = document.getElementById('home');
-    const h1s = Array.from(home.children).filter(el => el.tagName === 'H1');
-    const inputH1 = h1s[1];
-    const outputH1 = h1s[2];
-    let inputFilterDiv = document.getElementById('inputGroupWrap');
-    if (!inputFilterDiv) {
-        inputFilterDiv = document.createElement('div');
-        inputFilterDiv.id = 'inputGroupWrap';
-        inputFilterDiv.style.margin = '1.2em 0 1.5em 0';
-        inputFilterDiv.innerHTML = `<div style="display:flex;gap:0.5em;flex-wrap:wrap;align-items:center;"><span style="font-weight:600;min-width:120px;">Voice Cloning Input:</span><div id="inputGroup" style="display:flex;gap:0.5em;flex-wrap:wrap;"></div></div>`;
-        if (inputH1) inputH1.parentNode.insertBefore(inputFilterDiv, inputH1.nextSibling);
-    }
-    let outputFilterDiv = document.getElementById('outputGroupWrap');
-    if (!outputFilterDiv) {
-        outputFilterDiv = document.createElement('div');
-        outputFilterDiv.id = 'outputGroupWrap';
-        outputFilterDiv.style.margin = '1.2em 0 1.5em 0';
-        outputFilterDiv.innerHTML = `<div style="display:flex;gap:0.5em;flex-wrap:wrap;align-items:center;"><span style="font-weight:600;min-width:120px;">Voice Cloning Output:</span><div id="outputGroup" style="display:flex;gap:0.5em;flex-wrap:wrap;"></div></div>`;
-        if (outputH1) outputH1.parentNode.insertBefore(outputFilterDiv, outputH1.nextSibling);
+        group.addEventListener('change', (event) => {
+            if (event.target.type === 'radio') {
+                group.querySelectorAll('.custom-radio-label').forEach(label => {
+                    label.classList.remove('is-checked');
+                });
+
+                const checkedLabel = event.target.closest('.custom-radio-label');
+                if (checkedLabel) {
+                    checkedLabel.classList.add('is-checked');
+                }
+                
+                onChangeCallback(event.target.value);
+            }
+        });
     }
     const INPUTS = [
         { key: 'all', label: 'All' },
@@ -326,15 +350,59 @@ document.addEventListener('DOMContentLoaded', () => {
         { key: 'coqui', label: 'YourTTS' },
         { key: 'seedvc', label: 'SeedVC' }
     ];
-    let curInput = 'antifake', curOutput = 'tortoise';
-    renderRadios(document.getElementById('inputGroup'), INPUTS, curInput, (val) => {
-        curInput = val;
-        showInputGroup(curInput);
-    });
-    renderRadios(document.getElementById('outputGroup'), OUTPUTS, curOutput, (val) => {
-        curOutput = val;
-        showOutputGroup(curOutput);
-    });
+    let curInput = 'antifake';
+    let curOutput = 'tortoise';
+
+    function setupRadioControls() {
+        const home = document.getElementById('home');
+        const inputAnchor = home.querySelector('.before-input');
+        const outputAnchor = home.querySelector('.before-output');
+
+        if (!document.getElementById('inputGroupWrap')) {
+            const inputFilterDiv = document.createElement('div');
+            inputFilterDiv.id = 'inputGroupWrap';
+            inputFilterDiv.className = 'filter-group-wrap'; // 使用CSS class
+            
+            const title = document.createElement('span');
+            title.className = 'filter-group-title'; // 使用CSS class
+            title.textContent = 'Protection Method:';
+            
+            const inputGroup = document.createElement('div');
+            inputGroup.id = 'inputGroup';
+            
+            inputFilterDiv.appendChild(title);
+            inputFilterDiv.appendChild(inputGroup);
+            if (inputAnchor) inputAnchor.parentNode.insertBefore(inputFilterDiv, inputAnchor.nextSibling);
+
+            renderRadios(inputGroup, INPUTS, curInput, (val) => {
+                curInput = val;
+                showInputGroup(curInput); 
+            });
+        }
+        if (!document.getElementById('outputGroupWrap')) {
+            const outputFilterDiv = document.createElement('div');
+            outputFilterDiv.id = 'outputGroupWrap';
+            outputFilterDiv.className = 'filter-group-wrap'; 
+
+            const title = document.createElement('span');
+            title.className = 'filter-group-title'; 
+            title.textContent = 'Voice Cloning Method:';
+            
+            const outputGroup = document.createElement('div');
+            outputGroup.id = 'outputGroup';
+            
+            outputFilterDiv.appendChild(title);
+            outputFilterDiv.appendChild(outputGroup);
+            if (outputAnchor) outputAnchor.parentNode.insertBefore(outputFilterDiv, outputAnchor.nextSibling);
+
+            renderRadios(outputGroup, OUTPUTS, curOutput, (val) => {
+                curOutput = val;
+                showOutputGroup(curOutput); 
+            });
+        }
+    }
+
+    setupRadioControls();
 
     // --- Title and table mapping ---
     // table => [h2, h3], title => [table, ...]
@@ -369,27 +437,35 @@ document.addEventListener('DOMContentLoaded', () => {
     showInputGroup(curInput);
     showOutputGroup(curOutput);
     setupAudioLazyLoad();
-    lazyPreloadTableViewAudio(); // lazy load table-view audio metadata
 
-    // Function to lazy load table-view audio metadata
-    function lazyPreloadTableViewAudio() {
-        const audioElements = mainContent.querySelectorAll('.table-view audio[preload="none"]');
-        if (!audioElements.length) return;
-        const audioObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const audio = entry.target;
-                    if (audio.preload === 'none') {
-                        audio.preload = 'metadata';
-                    }
-                    observer.unobserve(audio);
-                }
-            });
-        }, {
-            rootMargin: '200px'
+    // 获取页面上所有的自定义单选框
+    const customRadios = document.querySelectorAll('.custom-radio-input');
+    // 获取所有单选框的标签，以便我们移除旧的选中状态
+    const allLabels = document.querySelectorAll('.custom-radio-label');
+
+    // 定义一个函数来更新状态
+    function updateRadioStyles(event) {
+        // 找到被点击的单选框所属的组名
+        const radioName = event.target.name;
+        
+        // 移除同一组内所有标签的 .is-checked 类
+        document.querySelectorAll(`input[name="${radioName}"]`).forEach(input => {
+            input.closest('.custom-radio-label').classList.remove('is-checked');
         });
-        audioElements.forEach(audio => {
-            audioObserver.observe(audio);
-        });
-    }
+
+        // 为当前选中的单选框的父标签添加 .is-checked 类
+        if (event.target.checked) {
+            event.target.closest('.custom-radio-label').classList.add('is-checked');
+        }
+        }
+
+    // 为每个单选框添加点击事件监听
+    customRadios.forEach(radio => {
+        radio.addEventListener('click', updateRadioStyles);
+
+        // 初始化页面加载时的状态
+        if (radio.checked) {
+            radio.closest('.custom-radio-label').classList.add('is-checked');
+        }
+    });
 });

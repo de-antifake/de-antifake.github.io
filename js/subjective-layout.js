@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mainContent = document.querySelector('.main-content2');
+    const mainContent = document.querySelector('.main-content');
     if (!mainContent) return;
 
     const tables = mainContent.querySelectorAll('table');
     const mediaQuery = window.matchMedia('(max-width: 1199.98px)');
 
+    // label mapping for simplified display
+    const labelMap = {
+        'Original Clean Audio': 'Clean Input',
+        'Clean Synthesized': 'Clean Synth.',
+        'Protected Synthesized': 'Protected Synth.',
+        'Purified Synthesized (AudioPure)': 'Purified (AudioPure)',
+        'Purified Synthesized (Ours)': 'Purified (Ours)'
+    };
+
     // Function to transform tables to cards
     function transformTables() {
         tables.forEach(table => {
-            // Check if already processed
-            if (table.closest('.table-view')) return;
-
-            // Wrap table for CSS targeting
-            const tableView = document.createElement('div');
-            tableView.className = 'table-view';
-            table.parentNode.insertBefore(tableView, table);
-            tableView.appendChild(table);
-
             // --- Data Extraction (Row-based for subjective.html) ---
             const headers = Array.from(table.querySelectorAll('tr:first-of-type th')).map(th => th.textContent.trim());
             const rows = Array.from(table.querySelectorAll('tr')).slice(1); // Skip header row
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const label = headers[i]; // Get corresponding header
                     if (audioPlayer && label) {
                         items.push({
-                            label: label,
+                            label: labelMap[label] || label,
                             playerHTML: audioPlayer.outerHTML
                         });
                     }
@@ -52,15 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
             cardsData.forEach(cardData => {
                 const card = document.createElement('div');
                 card.className = 'audio-card';
-                let cardHTML = `<h3>${cardData.title}</h3>`;
-                cardData.items.forEach(item => {
-                    cardHTML += `<div class="audio-item"><p>${item.label}</p>${item.playerHTML}</div>`;
-                });
+                let cardHTML = `<h3>LibriSpeech: ${cardData.title}</h3>`;
+                // group rendering
+                if (cardData.items.length > 0) {
+                    cardHTML += '<div class="audio-group-title">Original Clean</div>';
+                    cardHTML += `<div class="audio-item"><p>${cardData.items[0].label}</p>${cardData.items[0].playerHTML}</div>`;
+                }
+                if (cardData.items.length > 1) {
+                    cardHTML += '<div class="audio-group-title">Synthesized</div>';
+                    for (let i = 1; i < cardData.items.length; i++) {
+                        cardHTML += `<div class="audio-item"><p>${cardData.items[i].label}</p>${cardData.items[i].playerHTML}</div>`;
+                    }
+                }
                 card.innerHTML = cardHTML;
                 cardView.appendChild(card);
             });
 
-            tableView.parentNode.insertBefore(cardView, tableView.nextSibling);
+            table.parentNode.insertBefore(cardView, table.nextSibling);
+            table.remove();
         });
     }
 
