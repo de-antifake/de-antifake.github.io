@@ -553,8 +553,7 @@ audio {
   font-family: "Inconsolata", Consolas, Menlo, monospace;
   font-weight: 600;
   color: #819198;
-  margin: 20px 0 4px 0;
-  padding-left: 8px;
+  margin: 20px 0 4px 8px;
   background: none;
   border: none;
   box-shadow: none;
