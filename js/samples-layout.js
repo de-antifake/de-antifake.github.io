@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getLabelByKey(options, key, isInput) {
         if (key === 'all') {
-            return isInput ? 'All Protection' : 'All Voice Cloning';
+            return isInput ? 'All Protection' : 'All VC';
         }
         const found = options.find(opt => opt.key === key);
         return found ? found.label : key;
