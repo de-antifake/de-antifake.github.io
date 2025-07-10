@@ -505,7 +505,8 @@ audio {
   margin-bottom: 15px;
   margin-left: 4px; */
   word-break: break-all; /* Prevents long filenames from overflowing */
-  background-color: #f8f9fa; 
+  background-color: #f0f2f4; 
+  /* background-color: #f8f9fa; */
   padding: 12px 18px; 
   
   border-bottom: 1px solid #e9ecef;
@@ -527,7 +528,7 @@ audio {
   font-size: 0.97rem;
   color: #555;
   flex: 0 0 auto; /* Don't grow or shrink */
-  width: 40%; /* Fixed width for text area */
+  width: 35%; /* Fixed width for text area */
   text-align: left; /* Left align text */
   word-wrap: break-word; /* Allow text wrapping */
   line-height: 1.4; /* Better line spacing for wrapped text */
@@ -539,7 +540,7 @@ audio {
 
 .audio-card audio {
   flex: 0 0 auto; /* Don't grow or shrink */
-  width: 50%; /* Fixed width for audio player */
+  width: 55%; /* Fixed width for audio player */
   height: 30px; /* reduce height of audio player */
   max-width: 450px; /* Limit max width for audio player */
   
@@ -550,9 +551,9 @@ audio {
   display: block;
   text-align: left;
   font-family: "Inconsolata", Consolas, Menlo, monospace;
-  font-weight: 500;
+  font-weight: 600;
   color: #819198;
-  margin: 36px 0 4px 0;
+  margin: 20px 0 4px 0;
   padding-left: 8px;
   background: none;
   border: none;
@@ -560,18 +561,19 @@ audio {
   letter-spacing: 0.01em;
   line-height: 1.2;
   position: relative;
-  /* background-color: #f5f8fc; */
+  border-bottom: #e5e5e5 1.5px solid;
+  /* background: #f7f9fa; */
   margin-bottom: 14px;
 }
 
 .audio-group-title::before {
   content: '[';
-  margin-right: .5em; /* Space between opening bracket and title */
+  margin-right: .3em; /* Space between opening bracket and title */
 }
 
 .audio-group-title::after {
   content: ']';
-  margin-left: .5em; /* Space between title and closing bracket */
+  margin-left: .3em; /* Space between title and closing bracket */
 }
 
 /*.audio-group-title::after {
@@ -583,33 +585,16 @@ audio {
   margin-bottom: 14px;
   width: 100%;
 } */
-/* New styles for audio group title */
-.audio-group-title0 {
-  display: block;
-  text-align: left;
-  font-family: "Inconsolata", Consolas, Menlo, monospace;
-  font-weight: 500;
-  color: #819198;
-  margin: 18px 0 4px 0;
-  padding-left: 8px;
-  background: none;
+
+/* New style for audio card divider */
+.audio-card-divider {
+
+  width: 80%;
+  margin: 20px auto;
   border: none;
-  box-shadow: none;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
-  position: relative;
-  /* background-color: #f5f8fc; */
-  margin-bottom: 14px;
-}
-
-.audio-group-title0::before {
-  content: '[';
-  margin-right: .5em; /* Space between opening bracket and title */
-}
-
-.audio-group-title0::after {
-  content: ']';
-  margin-left: .5em; /* Space between title and closing bracket */
+  border-top: 1.5px solid #fdfdfd;;
+  background: none;
+  display: block;
 }
 
 
