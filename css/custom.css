@@ -14,7 +14,9 @@ audio {
   
   p {
     text-align: justify;
+    word-spacing: 0.1em;
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
   }  
   .btn {
     transition: all 0.3s ease;
@@ -488,18 +490,17 @@ audio {
   background-color: #fdfdfd;
   max-width: 600px;
 }
-/* (可选) 鼠标悬停时，阴影稍微加深，提供交互反馈 */
 .audio-card:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 .audio-card h3,
 .audio-card-title {
   margin-top: 0;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: #333;
   /* border-bottom: 1px solid #eee; */
-  font-family: Consolas, "Inconsolata", Menlo, monospace;
+  font-family: "Inconsolata", Consolas, Menlo, monospace;
   /* padding-bottom: 10px;
   margin-bottom: 15px;
   margin-left: 4px; */
@@ -523,7 +524,7 @@ audio {
 .audio-item p {
   margin: 0;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.97rem;
   color: #555;
   flex: 0 0 auto; /* Don't grow or shrink */
   width: 40%; /* Fixed width for text area */
@@ -548,9 +549,8 @@ audio {
 .audio-group-title {
   display: block;
   text-align: left;
-  font-size: 0.92em;
-  font-family: Consolas, "Inconsolata", Menlo, monospace;
-  font-weight: 400;
+  font-family: "Inconsolata", Consolas, Menlo, monospace;
+  font-weight: 500;
   color: #819198;
   margin: 36px 0 4px 0;
   padding-left: 8px;
@@ -587,9 +587,8 @@ audio {
 .audio-group-title0 {
   display: block;
   text-align: left;
-  font-size: 0.92em;
-  font-family: Consolas, "Inconsolata", Menlo, monospace;
-  font-weight: 400;
+  font-family: "Inconsolata", Consolas, Menlo, monospace;
+  font-weight: 500;
   color: #819198;
   margin: 18px 0 4px 0;
   padding-left: 8px;
