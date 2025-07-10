@@ -86,33 +86,41 @@
 <section class="main-content">
         <div id="home">
     <h2>Introduction</h2>
-    <p>This is the homepage of our <a href="https://arxiv.org/abs/2507.02606">paper</a> "De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks". This work presents a systematic evaluation of protective perturbations against voice cloning attacks and proposes a novel two-stage purification method to disrupt existing defenses.</p>
+    <p>This is the homepage of our paper <a href="https://arxiv.org/abs/2507.02606"><i>De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks</i></a>. This work presents a systematic evaluation of protective perturbations against voice cloning attacks and proposes a novel two-stage purification method to disrupt existing defenses.</p>
 
 
 
-    <h2>Abstract</h2>    <p style="text-indent: 2em; text-align: justify;">
+    <h2>Abstract</h2>    
+    <p>
       The rapid advancement of speech generation models has heightened privacy and security concerns related to voice cloning (VC). Recent studies have investigated disrupting unauthorized voice cloning by introducing adversarial perturbations. However, determined attackers can mitigate these protective perturbations and successfully execute VC.
-    </p>      <div style="text-align: center; margin: 20px 0;">
+    </p>      
+    <div style="text-align: center; margin: 20px 0;">
       <img src="fig/caption.svg" alt="Overview of voice cloning protection and attack scenarios" style="max-width: 50%; height: auto;">
       <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 14px; text-align: center;">Figure 1: The threat model: Bypassing voice cloning defenses using purification methods.</p>
     </div>
     
-    <p style="text-indent: 2em; text-align: justify;">
+    <p>
       In this study, we conduct the first systematic evaluation of these protective perturbations against VC under realistic threat models that include perturbation purification. Our findings reveal that while existing purification methods can neutralize a considerable portion of the protective perturbations, they still lead to distortions in the feature space of VC models, which degrades the performance of VC.
-    </p>      <div style="text-align: center; margin: 20px 0;">
+    </p>      
+    <div style="text-align: center; margin: 20px 0;">
       <img src="fig/PhonePuRe.svg" alt="PhonePuRe methodology diagram" style="max-width: 80%; height: auto;">
       <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 14px; text-align: center;">Figure 2:  Our two-stage method: A refinement stage repairs distortions left by initial purification.</p>
     </div>
     
-    <p style="text-indent: 2em; text-align: justify;">
+    <p>
       From this perspective, we propose a novel two-stage purification method: (1) Purify the perturbed speech; (2) Refine it using phoneme guidance to align it with the clean speech distribution. Experimental results demonstrate that our method outperforms state-of-the-art purification methods in disrupting VC defenses. Our study reveals the limitations of adversarial perturbation-based VC defenses and underscores the urgent need for more robust solutions to mitigate the security and privacy risks posed by VC.
-    </p>      <div style="text-align: center; margin: 20px 0;">
+    </p>      
+    <div style="text-align: center; margin: 20px 0;">
       <img src="fig/results.svg" alt="Experimental results comparison" style="max-width: 60%; height: auto;">
-      <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 14px; text-align: center;">Our method consistently achieves the highest attack success rate across all tested defenses, <br>boosting performance from 45.1% to 76.2% in the most challenging case (AntiFake).</p>
+    <p style="font-style: italic; color: #666; margin-top: 10px; font-size: 14px; text-align: center;">
+      Our method consistently achieves the highest attack success rate across all tested defenses, <br>boosting performance from 45.1% to 76.2% in the most challenging case (AntiFake).
+    </p>
     </div>
 
     <h2>Citation</h2>
+    <p>
     If you find this work useful, please consider citing our paper:
+    </p>
 
     <pre style="padding: 15px 15px 15px 25px; background-color: #f6f8fa; border: 1px solid #d1d9e0; border-radius: 6px; overflow-x: auto; margin-top: 15px;">
 @inproceedings{de-antifake-icml2025,
@@ -123,8 +131,12 @@
 }</pre>
 
     <h2>Contact</h2>
-    Technical Questions: <a href="mailto:range@mail.ustc.edu.cn">range@mail.ustc.edu.cn</a>.<br>
+    <p>
+    Technical Questions: <a href="mailto:range@mail.ustc.edu.cn">range@mail.ustc.edu.cn</a>.
+    </p>
+    <p>
     General Inquiries: <a href="mailto:chenkj@ustc.edu.cn">chenkj@ustc.edu.cn</a>.
+    </p>
 
   </div>
 

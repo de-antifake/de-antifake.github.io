@@ -14,6 +14,8 @@ audio {
   
   p {
     text-align: justify;
+    word-spacing: 0.02em; /* Adjust word spacing for better readability */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }  
   .btn {
     transition: all 0.3s ease;
@@ -21,6 +23,8 @@ audio {
     /* overflow: hidden; */
   }
   
+
+
   .btn:hover {
     /* transform: scale(1.05); */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -473,27 +477,44 @@ audio {
 
 /* Individual card styling */
 .audio-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease-in-out; 
+  
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 18px 18px 18px 8px;
+  /* padding: 18px 18px 18px 8px; */
+  padding: 0; 
+  overflow: hidden; 
   margin-bottom: 20px;
   margin-right: 15px;
   background-color: #fdfdfd;
   max-width: 600px;
 }
-
+/* (可选) 鼠标悬停时，阴影稍微加深，提供交互反馈 */
+.audio-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
 .audio-card h3,
 .audio-card-title {
   margin-top: 0;
   font-size: 1rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   color: #333;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  /* border-bottom: 1px solid #eee; */
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  /* padding-bottom: 10px;
   margin-bottom: 15px;
-  margin-left: 4px;
+  margin-left: 4px; */
   word-break: break-all; /* Prevents long filenames from overflowing */
-}  
+  background-color: #f8f9fa; 
+  padding: 12px 18px; 
+  
+  border-bottom: 1px solid #e9ecef;
+}
+.audio-card-body {
+    padding: 18px;
+}
 .audio-item {
   display: flex;
   align-items: center; /* Center align both text and audio */
@@ -516,6 +537,7 @@ audio {
   align-items: center; /* Center the text vertically within its container */
   margin-right: 16px; /* space between text and audio */
   margin-left: 2em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .audio-card audio {
@@ -531,7 +553,7 @@ audio {
   display: block;
   text-align: left;
   font-size: 0.92em;
-  font-style: italic;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-weight: 400;
   color: #819198;
   margin: 36px 0 4px 0;
@@ -542,23 +564,35 @@ audio {
   letter-spacing: 0.01em;
   line-height: 1.2;
   position: relative;
-  background-color: #f5f8fc;
+  /* background-color: #f5f8fc; */
+  margin-bottom: 14px;
 }
+
+.audio-group-title::before {
+  content: '[';
+  margin-right: .5em; /* Space between opening bracket and title */
+}
+
 .audio-group-title::after {
+  content: ']';
+  margin-left: .5em; /* Space between title and closing bracket */
+}
+
+/*.audio-group-title::after {
   content: '';
   display: block;
   height: 1px;
   background: #e5e5e5;
-  margin-top: 2px; /* closer to title */
-  margin-bottom: 14px; /* away from audio items */
+  margin-top: 2px;
+  margin-bottom: 14px;
   width: 100%;
-}
+} */
 /* New styles for audio group title */
 .audio-group-title0 {
   display: block;
   text-align: left;
   font-size: 0.92em;
-  font-style: italic;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-weight: 400;
   color: #819198;
   margin: 18px 0 4px 0;
@@ -569,23 +603,26 @@ audio {
   letter-spacing: 0.01em;
   line-height: 1.2;
   position: relative;
-  background-color: #f5f8fc;
+  /* background-color: #f5f8fc; */
+  margin-bottom: 14px;
 }
+
+.audio-group-title0::before {
+  content: '[';
+  margin-right: .5em; /* Space between opening bracket and title */
+}
+
 .audio-group-title0::after {
-  content: '';
-  display: block;
-  height: 1px;
-  background: #e5e5e5;
-  margin-top: 2px; /* closer to title */
-  margin-bottom: 14px; /* away from audio items */
-  width: 100%;
+  content: ']';
+  margin-left: .5em; /* Space between title and closing bracket */
 }
+
 
 .section-divider {
   display: flex;
   align-items: center;
   width: 100%;
-  margin: 32px 0 18px 0;
+  margin: 50px 0 18px 0;
   font-size: 1.15em;
   font-weight: 700;
   color: #157878;
@@ -625,10 +662,16 @@ audio {
   letter-spacing: 0.01em;
 }
 
+.status-indicator0 { 
+  color: #343a40 !important; 
+  font-weight: 600 !important;
+  /* border-bottom: #dce6f0 1px solid; */
+}
+
 .status-indicator { 
   padding: 0 1rem; 
   margin-left: 0; 
-  color: #819198 !important; 
+  color: #157878 !important;
   border-left: 0.3rem solid #dce6f0; 
 }
 
@@ -671,11 +714,16 @@ audio {
       font-size: 1.6rem; /* Reduce H1 size */
     }
     .main-content h2, .main-content2 h2 {
-      font-size: 1.3rem; /* Reduce H2 size */
+      margin-top: 2.5rem;
+      font-size: 1.35rem; /* Reduce H2 size */
     }
-    .main-content h3, .main-content2 h3,
+    .main-content h3, .main-content2 h3 {
+      font-size: 1.2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
     .audio-card h3,
-    .audio-card-title {
+    .audio-card-title h3 {
       font-size: 1rem;
     }
     .main-content p, .main-content2 p {

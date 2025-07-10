@@ -247,9 +247,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 unsupported = document.createElement('div');
                 unsupported.id = 'unsupportedCombo';
                 unsupported.style.color = '#666';
-                unsupported.style.fontWeight = 'normal';
-                unsupported.style.fontSize = '15px';
+                unsupported.style.textAlign = 'center';
                 unsupported.style.marginTop = '8px';
+                unsupported.style.fontWeight = '600';
                 unsupported.textContent = 'The current combination is not supported.';
                 divider.parentNode.insertBefore(unsupported, divider.nextSibling);
             } else {
