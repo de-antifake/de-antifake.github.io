@@ -72,85 +72,464 @@
         <div id="home">
             <h1>Test Cases</h1>
 
-            <p class="before-input">
-                Below are audio examples used for subjective test in the paper. You can compare the speaker similarity between the original clean audio and cloned speech using different samples here.
+            <p>
+                This page provides audio samples used for subjective test in the paper.
             </p>
-
-            <table>
-                <tr>
-                <th>File (LibriSpeech)</th><th>Original Clean Audio</th><th>Clean Synthesized</th><th>Protected Synthesized</th><th>Purified Synthesized (AudioPure)</th><th>Purified Synthesized (Ours)</th></tr>
-                <tr>
-                <td>1221-135767-0020</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p1221-135767-0020\source-librispeech_p1221-135767-0020-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1221-135767-0020\clean-librispeech_p1221-135767-0020-none-openvoice.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1221-135767-0020\protect-librispeech_p1221-135767-0020-attack-openvoice.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1221-135767-0020\audiopure-librispeech_p1221-135767-0020-attack-openvoice.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1221-135767-0020\ours-librispeech_p1221-135767-0020-attack-openvoice.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>1995-1826-0005</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p1995-1826-0005\source-librispeech_p1995-1826-0005-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1995-1826-0005\clean-librispeech_p1995-1826-0005-none-coqui.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1995-1826-0005\protect-librispeech_p1995-1826-0005-antifake-coqui.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1995-1826-0005\audiopure-librispeech_p1995-1826-0005-antifake-coqui.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p1995-1826-0005\ours-librispeech_p1995-1826-0005-antifake-coqui.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>2300-131720-0024</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p2300-131720-0024\source-librispeech_p2300-131720-0024-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2300-131720-0024\clean-librispeech_p2300-131720-0024-none-rtvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2300-131720-0024\protect-librispeech_p2300-131720-0024-voiceguard-rtvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2300-131720-0024\audiopure-librispeech_p2300-131720-0024-voiceguard-rtvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2300-131720-0024\ours-librispeech_p2300-131720-0024-voiceguard-rtvc.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>2830-3979-0012</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p2830-3979-0012\source-librispeech_p2830-3979-0012-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2830-3979-0012\clean-librispeech_p2830-3979-0012-none-seedvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2830-3979-0012\protect-librispeech_p2830-3979-0012-antifake-seedvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2830-3979-0012\audiopure-librispeech_p2830-3979-0012-antifake-seedvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2830-3979-0012\ours-librispeech_p2830-3979-0012-antifake-seedvc.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>2961-961-0000</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p2961-961-0000\source-librispeech_p2961-961-0000-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2961-961-0000\clean-librispeech_p2961-961-0000-none-tortoise.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2961-961-0000\protect-librispeech_p2961-961-0000-voiceguard-tortoise.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2961-961-0000\audiopure-librispeech_p2961-961-0000-voiceguard-tortoise.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p2961-961-0000\ours-librispeech_p2961-961-0000-voiceguard-tortoise.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>3570-5694-0012</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p3570-5694-0012\source-librispeech_p3570-5694-0012-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3570-5694-0012\clean-librispeech_p3570-5694-0012-none-tortoise.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3570-5694-0012\protect-librispeech_p3570-5694-0012-attack-tortoise.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3570-5694-0012\audiopure-librispeech_p3570-5694-0012-attack-tortoise.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3570-5694-0012\ours-librispeech_p3570-5694-0012-attack-tortoise.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>3575-170457-0005</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p3575-170457-0005\source-librispeech_p3575-170457-0005-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3575-170457-0005\clean-librispeech_p3575-170457-0005-none-diffvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3575-170457-0005\protect-librispeech_p3575-170457-0005-antifake-diffvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3575-170457-0005\audiopure-librispeech_p3575-170457-0005-antifake-diffvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p3575-170457-0005\ours-librispeech_p3575-170457-0005-antifake-diffvc.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>4992-23283-0013</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p4992-23283-0013\source-librispeech_p4992-23283-0013-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p4992-23283-0013\clean-librispeech_p4992-23283-0013-none-diffvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p4992-23283-0013\protect-librispeech_p4992-23283-0013-attack-diffvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p4992-23283-0013\audiopure-librispeech_p4992-23283-0013-attack-diffvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p4992-23283-0013\ours-librispeech_p4992-23283-0013-attack-diffvc.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>5142-33396-0035</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p5142-33396-0035\source-librispeech_p5142-33396-0035-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5142-33396-0035\clean-librispeech_p5142-33396-0035-none-openvoice.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5142-33396-0035\protect-librispeech_p5142-33396-0035-voiceguard-openvoice.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5142-33396-0035\audiopure-librispeech_p5142-33396-0035-voiceguard-openvoice.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5142-33396-0035\ours-librispeech_p5142-33396-0035-voiceguard-openvoice.wav" type="audio/wav"></audio></td>
-                </tr>
-                <tr>
-                <td>5683-32879-0012</td><td><audio controls preload="none"><source src="samples\subjective\librispeech_p5683-32879-0012\source-librispeech_p5683-32879-0012-none-source.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5683-32879-0012\clean-librispeech_p5683-32879-0012-none-rtvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5683-32879-0012\protect-librispeech_p5683-32879-0012-antifake-rtvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5683-32879-0012\audiopure-librispeech_p5683-32879-0012-antifake-rtvc.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none"><source src="samples\subjective\librispeech_p5683-32879-0012\ours-librispeech_p5683-32879-0012-antifake-rtvc.wav" type="audio/wav"></audio></td>
-                </tr>
-            </table>
-
+            <p>
+                The participants were asked to rate the <b>perceived speaker similarity</b> between the original clean speech and speech synthesized using clean, protected, and purified samples.
+            </p>         
+                <div class="card-view">
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 1221-135767-0020
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1221-135767-0020\source-librispeech_p1221-135767-0020-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1221-135767-0020\clean-librispeech_p1221-135767-0020-none-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1221-135767-0020\protect-librispeech_p1221-135767-0020-attack-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1221-135767-0020\audiopure-librispeech_p1221-135767-0020-attack-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1221-135767-0020\ours-librispeech_p1221-135767-0020-attack-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 1995-1826-0005
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1995-1826-0005\source-librispeech_p1995-1826-0005-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1995-1826-0005\clean-librispeech_p1995-1826-0005-none-coqui.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1995-1826-0005\protect-librispeech_p1995-1826-0005-antifake-coqui.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1995-1826-0005\audiopure-librispeech_p1995-1826-0005-antifake-coqui.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p1995-1826-0005\ours-librispeech_p1995-1826-0005-antifake-coqui.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 2300-131720-0024
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2300-131720-0024\source-librispeech_p2300-131720-0024-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2300-131720-0024\clean-librispeech_p2300-131720-0024-none-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2300-131720-0024\protect-librispeech_p2300-131720-0024-voiceguard-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2300-131720-0024\audiopure-librispeech_p2300-131720-0024-voiceguard-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2300-131720-0024\ours-librispeech_p2300-131720-0024-voiceguard-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 2830-3979-0012
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2830-3979-0012\source-librispeech_p2830-3979-0012-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2830-3979-0012\clean-librispeech_p2830-3979-0012-none-seedvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2830-3979-0012\protect-librispeech_p2830-3979-0012-antifake-seedvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2830-3979-0012\audiopure-librispeech_p2830-3979-0012-antifake-seedvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2830-3979-0012\ours-librispeech_p2830-3979-0012-antifake-seedvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 2961-961-0000
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2961-961-0000\source-librispeech_p2961-961-0000-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2961-961-0000\clean-librispeech_p2961-961-0000-none-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2961-961-0000\protect-librispeech_p2961-961-0000-voiceguard-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2961-961-0000\audiopure-librispeech_p2961-961-0000-voiceguard-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p2961-961-0000\ours-librispeech_p2961-961-0000-voiceguard-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 3570-5694-0012
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3570-5694-0012\source-librispeech_p3570-5694-0012-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3570-5694-0012\clean-librispeech_p3570-5694-0012-none-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3570-5694-0012\protect-librispeech_p3570-5694-0012-attack-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3570-5694-0012\audiopure-librispeech_p3570-5694-0012-attack-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3570-5694-0012\ours-librispeech_p3570-5694-0012-attack-tortoise.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 3575-170457-0005
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3575-170457-0005\source-librispeech_p3575-170457-0005-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3575-170457-0005\clean-librispeech_p3575-170457-0005-none-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3575-170457-0005\protect-librispeech_p3575-170457-0005-antifake-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3575-170457-0005\audiopure-librispeech_p3575-170457-0005-antifake-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p3575-170457-0005\ours-librispeech_p3575-170457-0005-antifake-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 4992-23283-0013
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p4992-23283-0013\source-librispeech_p4992-23283-0013-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p4992-23283-0013\clean-librispeech_p4992-23283-0013-none-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p4992-23283-0013\protect-librispeech_p4992-23283-0013-attack-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p4992-23283-0013\audiopure-librispeech_p4992-23283-0013-attack-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p4992-23283-0013\ours-librispeech_p4992-23283-0013-attack-diffvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 5142-33396-0035
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5142-33396-0035\source-librispeech_p5142-33396-0035-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5142-33396-0035\clean-librispeech_p5142-33396-0035-none-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5142-33396-0035\protect-librispeech_p5142-33396-0035-voiceguard-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5142-33396-0035\audiopure-librispeech_p5142-33396-0035-voiceguard-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5142-33396-0035\ours-librispeech_p5142-33396-0035-voiceguard-openvoice.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                <div class="audio-card">
+                <h3 class="audio-card-title">
+                 LibriSpeech: 5683-32879-0012
+                </h3><div class="audio-group-title0">Voice Cloning Inputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Input
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5683-32879-0012\source-librispeech_p5683-32879-0012-none-source.wav" type="audio/wav">
+                </audio>
+                </div><div class="audio-group-title">Voice Cloning Outputs</div>
+                <div class="audio-item">
+                <p>
+                    Clean Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5683-32879-0012\clean-librispeech_p5683-32879-0012-none-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Protected Synth.
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5683-32879-0012\protect-librispeech_p5683-32879-0012-antifake-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (AudioPure)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5683-32879-0012\audiopure-librispeech_p5683-32879-0012-antifake-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                <div class="audio-item">
+                <p>
+                    Purified (Ours)
+                </p>
+                <audio controls="">
+                    <source src="samples\subjective\librispeech_p5683-32879-0012\ours-librispeech_p5683-32879-0012-antifake-rtvc.wav" type="audio/wav">
+                </audio>
+                </div>
+                </div>
+                </div>
     </div>
 </section>
 <script src="js/subjective-layout.js"></script>
