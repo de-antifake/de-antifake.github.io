@@ -14,8 +14,7 @@ audio {
   
   p {
     text-align: justify;
-    word-spacing: 0.06em; /* Adjust word spacing for better readability */
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }  
   .btn {
     transition: all 0.3s ease;
@@ -621,7 +620,7 @@ audio {
   display: flex;
   align-items: center;
   width: 100%;
-  margin: 5rem 0 3rem 0;
+  margin: 4rem 0 3rem 0;
   font-size: 1.15em;
   font-weight: 700;
   color: #157878;
