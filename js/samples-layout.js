@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 懒加载相关函数（原样保留）
+    // Audio Lazy Load
     let audioObserver = null;
     function setupAudioLazyLoad() {
         const audioItems = mainContent.querySelectorAll('.audio-item');

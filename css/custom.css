@@ -575,27 +575,6 @@ audio {
   margin-left: .3em; /* Space between title and closing bracket */
 }
 
-/*.audio-group-title::after {
-  content: '';
-  display: block;
-  height: 1px;
-  background: #e5e5e5;
-  margin-top: 2px;
-  margin-bottom: 14px;
-  width: 100%;
-} */
-
-/* New style for audio card divider */
-.audio-card-divider {
-
-  width: 80%;
-  margin: 20px auto;
-  border: none;
-  border-top: 1.5px solid #fdfdfd;;
-  background: none;
-  display: block;
-}
-
 
 .section-divider {
   display: flex;
